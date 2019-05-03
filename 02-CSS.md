@@ -766,6 +766,16 @@ HTML标签一般分为块标签和行内标签两种类型，它们也称块元�
 
 选取标签带有某些特殊属性的选择器 我们成为属性选择器
 
+| **选择器**   | **含义**                              |
+| ------------ | ------------------------------------- |
+| E[attr]      | 存在attr属性即可                      |
+| E[attr=val]  | 属性值完全等于val                     |
+| E[attr^=val] | 属性值里面包含val字符并且在“开始”位置 |
+| E[attr$=val] | 属性值里面包含val字符并且在“结束”位置 |
+| E[attr*=val] | 属性值里面包含val字符并且在“任意”位置 |
+
+
+
 ~~~css
 /* 获取到 拥有 该属性的元素 */
 div[class^=font] { /*  class^=font 表示 font 开始位置就行了 */
@@ -780,7 +790,7 @@ div[class*=tao] { /* class*=tao  *=  表示tao 在任意位置都可以 */
 ~~~
 
 ~~~html
-<div class="font12">属性选择器</div>
+	<div class="font12">属性选择器</div>
     <div class="font12">属性选择器</div>
     <div class="font24">属性选择器</div>
     <div class="font24">属性选择器</div>
@@ -862,7 +872,7 @@ font-size: 12px;
 示例：
 
 ```
-/* good */
+/* 正例 */
 .post,
 .page,
 .comment {
@@ -870,7 +880,7 @@ font-size: 12px;
 }
 
 
-/* bad */
+/* 反例 */
 .post, .page, .comment {
     line-height: 1.5;
 }
