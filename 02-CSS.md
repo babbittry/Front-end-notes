@@ -985,8 +985,6 @@ repeat-y : 　背景图像在纵向平铺
 
 repeat-x : 　背景图像在横向上平铺  
 
-
-
 repeat-y : 　背景图像在纵向平铺 
 
 <img src="media/y.png" width="600"/>
@@ -1017,7 +1015,7 @@ position : 　top | center | bottom | left | center | right
 
 注意：
 
-1. position 后面是x坐标和y坐标。 可以使用方位名词或者 精确单位。
+1. position 后面是x坐标和y坐标。 可以使用方位名词或者精确单位。
 2. 如果和精确单位和方位名字混合使用，则必须是x坐标在前，y坐标后面。比如 background-position: 15px top;   则 15px 一定是  x坐标   top是 y坐标。
 
 实际工作用的最多的，就是背景图片居中对齐了。
