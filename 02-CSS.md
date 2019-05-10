@@ -1,3 +1,5 @@
+
+
 课程目标:
 
 > 1. 学会使用CSS选择器
@@ -1022,6 +1024,8 @@ position : 　top | center | bottom | left | center | right
 
 ## 背景附着
 
+设置或检索背景图像是随对象内容滚动还是固定的。
+
 语法： 
 
 ~~~css
@@ -1033,12 +1037,6 @@ background-attachment : scroll | fixed
 scroll : 　背景图像是随对象内容滚动
 fixed : 　背景图像固定 
 
-说明： 
-
-设置或检索背景图像是随对象内容滚动还是固定的。
-
-
-
 ## 背景简写
 
 background属性的值的书写顺序官方并没有强制标准的。为了可读性，建议大家如下写：
@@ -1048,6 +1046,8 @@ background:背景颜色 背景图片地址 背景平铺 背景滚动 背景位�
 ~~~css
 background: transparent url(image.jpg) repeat-y  scroll 50% 0 ;
 ~~~
+
+
 
 ## 背景透明(CSS3)
 
@@ -1063,19 +1063,15 @@ background: rgba(0,0,0,0.3);
 
 
 
-
-
-
-
 ## 背景缩放(CSS3)
 
 通过background-size设置背景图片的尺寸，就像我们设置img的尺寸一样，在移动Web开发中做屏幕适配应用非常广泛。
 
 其参数设置如下：
 
-a) 可以设置长度单位(px)或百分比（设置百分比时，参照盒子的宽高）
+a) 可以设置长度单位(px)或百分比（设置百分比时，参照盒子的宽高；设置px的时候，尽量之改一个值，防止失真，改的那个值是宽度）
 
-b) 设置为cover时，会自动调整缩放比例，保证图片始终填充满背景区域，如有溢出部分则会被隐藏。我们平时用的cover 最多
+b) 设置为cover时，会自动调整缩放比例，保证图片始终填充满背景区域，如有溢出部分则会被隐藏。**我们平时用的cover 最多**
 
 c) 设置为contain会自动调整缩放比例，保证图片始终完整显示在背景区域。
 
@@ -1085,6 +1081,8 @@ background-image: url('images/gyt.jpg');
 			/* background-size: contain; */
 			/* background-size: cover; */
 ~~~
+
+
 
 ## 多背景(CSS3)
 
@@ -1101,7 +1099,7 @@ background:url(test1.jpg) no-repeat scroll 10px 20px/50px 60px  ,
 	   url(test1.jpg) no-repeat scroll 10px 20px/110px 130px c #aaa;
 ~~~
 
-- 
+
 
 ## 凹凸文字
 
@@ -1143,14 +1141,12 @@ background:url(test1.jpg) no-repeat scroll 10px 20px/50px 60px  ,
 
 text-decoration   通常我们用于给链接修改装饰效果
 
-| 值            | 描述                      |
-| ------------ | ----------------------- |
-| none         | 默认。定义标准的文本。             |
+| 值           | 描述                                          |
+| ------------ | --------------------------------------------- |
+| none         | 默认。定义标准的文本。                        |
 | underline    | 定义文本下的一条线。下划线 也是我们链接自带的 |
-| overline     | 定义文本上的一条线。              |
-| line-through | 定义穿过文本下的一条线。            |
-|              |                         |
-|              |                         |
+| overline     | 定义文本上的一条线。                          |
+| line-through | 定义穿过文本下的一条线。                      |
 
 **使用技巧**：在一行内的盒子内，我们设定行高等于盒子的高度，就可以使文字垂直居中。
 
@@ -1208,7 +1204,7 @@ text-decoration   通常我们用于给链接修改装饰效果
 CSS最后的执行口诀：  长江后浪推前浪，前浪死在沙滩上。
 ~~~
 
-<img src="media/hai.gif"  width="600" height="400" />
+ 
 
 ##  CSS继承性
 
@@ -1219,8 +1215,6 @@ CSS最后的执行口诀：  长江后浪推前浪，前浪死在沙滩上。
 ~~~
 CSS最后的执行口诀：  龙生龙，凤生凤，老鼠生的孩子会打洞。
 ~~~
-
-<img src="media/shu.gif" />
 
 注意：
 
@@ -1280,13 +1274,13 @@ a:hover      -----—>      0,0,1,1
 
    
 
-​      
-
  <img src="media/w.jpg" /> 注意： 
 
 1.数位之间没有进制 比如说： 0,0,0,5 + 0,0,0,5 =0,0,0,10 而不是 0,0, 1, 0， 所以不会存在10个div能赶上一个类选择器的情况。
 
 2. 继承的 权重是 0
+
+   
 
 总结优先级：
 
