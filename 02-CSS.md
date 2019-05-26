@@ -913,10 +913,6 @@ div[class*=tao] { /* class*=tao  *=  表示tao 在任意位置都可以 */
 
 
 
-
-
-
-
 ## 伪元素选择器（CSS3)
 
 1. E::first-letter文本的第一个单词或字（如中文、日文、韩文等）
