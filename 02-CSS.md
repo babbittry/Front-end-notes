@@ -496,7 +496,7 @@ color属性用于定义文本的颜色，其取值方式有如下3种：
 
 需要注意的是，如果使用RGB代码的百分比颜色值，取值为0时也不能省略百分号，必须写为0%。
 
-##  line-height:行间距
+##  line-height:行间距（行高）
 
 ine-height属性用于设置行间距，就是行与行之间的距离，即字符的垂直间距，一般称为行高。line-height常用的属性值单位有三种，分别为像素px，相对值em和百分比%，实际工作中使用最多的是像素px
 
@@ -2604,7 +2604,7 @@ vertical-align : baseline |top |middle |bottom
 
 ![1498467742995](media/1498467742995.png)
 
-vertical-align 不影响块级元素中的内容对齐，它只针对于 行内元素或者行内块元素，特别是行内块元素， 通常用来控制图片和表单等。
+vertical-align 不影响块级元素中的内容对齐，它只针对于 行内元素或者行内块元素，特别是行内块元素， **通常用来控制图片和表单与文字的对齐**等。
 
 ### 图片、表单和文字对齐
 
@@ -2612,13 +2612,11 @@ vertical-align 不影响块级元素中的内容对齐，它只针对于 行内�
 
 ### 去除图片底侧空白缝隙
 
-有个很重要特性你要记住： 如果一个元素没有基线，比如图片或者表单等行内块元素，则他的底线会和父级盒子的基线对齐。</strong> 这样会造成一个问题，就是图片底侧会有一个空白缝隙。
-
-<img src="media/3.jpg" />
+有个很重要特性你要记住： 如果一个元素没有基线，比如图片或者表单等行内块元素，则他的底线会和父级盒子的基线对齐。这样会造成一个问题，就是图片底侧会有一个空白缝隙。
 
 解决的方法就是：  
 
-1. 给img vertical-align:middle | top等等。  让图片不要和基线对齐。<img src="media/1633.png"  width="500"  style="border: 1px dashed #ccc;" />
+1. 给img vertical-align:middle | top等等。  让图片不要和基线对齐。（用的比较多）<img src="media/1633.png"  width="500"  style="border: 1px dashed #ccc;" />
 
 
 1. 给img 添加 display：block; 转换为块级元素就不会存在问题了。<img src="media/sina1.png" width="500" style="border: 1px dashed #ccc;"/>
@@ -2654,7 +2652,7 @@ clip : 　不显示省略标记（...），而是简单的裁切
 
 ellipsis : 　当对象内文本溢出时显示省略标记（...）
 
-注意一定要首先强制一行内显示，再次和overflow属性  搭配使用
+注意**一定要首先强制一行内显示**，再次和overflow属性  搭配使用
 
 ## CSS精灵技术（sprite）
 
