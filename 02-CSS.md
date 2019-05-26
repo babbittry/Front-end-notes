@@ -377,6 +377,7 @@ a:hover {   /* :hover 是链接伪类选择器 鼠标经过 */
 - :first-child :选取属于其父元素的首个子元素的指定选择器
 - :last-child :选取属于其父元素的最后一个子元素的指定选择器
 - :nth-child(n) ： 匹配属于其父元素的第 N 个子元素，不论元素的类型
+- :nth-of-type(n)： 简单来说nth-of-type会忽略其它标签的顺序而安装标签自身种类的顺序进行筛选，也就是选择的参照点并不是DOM数，而是自身。
 - :nth-last-child(n) ：选择器匹配属于其元素的第 N 个子元素的每个元素，不论元素的类型，从最后一个子元素开始计数。
   n 可以是数字、关键词或公式
 
@@ -444,7 +445,15 @@ nth-child(n) 选择器匹配属于其父元素的第 n 个子元素。
 
 所以辨别是否匹配的关键是：找到父元素，然后再计算在父元素中的位置。
 
+### nth-of-type与nth-child的区别
 
+ nth-of-child：
+
+​       它的属性就是按照所有类型标签的所谓整体队列进行排序筛选，也就是说不论你是h1，span还是p标签，使用这个属性你要遵循在DOM树中的顺序来进行操作。
+
+nth-of-type:
+
+​      简单来说nth-of-type会忽略其它标签的顺序而安装标签自身种类的顺序进行筛选，也就是选择的参照点并不是DOM数，而是自身。就是按照类型来计算，碰到一个同类型就加1。
 
 ### 目标伪类选择器(CSS3)
 
@@ -817,13 +826,14 @@ HTML标签一般分为块标签和行内标签两种类型，它们也称块元�
 
 选取标签带有某些特殊属性的选择器 我们成为属性选择器
 
-| **选择器**   | **含义**                              |
-| ------------ | ------------------------------------- |
-| E[attr]      | 存在attr属性即可                      |
-| E[attr=val]  | 属性值完全等于val                     |
-| E[attr^=val] | 属性值里面包含val字符并且在“开始”位置 |
-| E[attr$=val] | 属性值里面包含val字符并且在“结束”位置 |
-| E[attr*=val] | 属性值里面包含val字符并且在“任意”位置 |
+| **选择器**    | **含义**                                          |
+| ------------- | ------------------------------------------------- |
+| E[attr]       | 存在attr属性即可                                  |
+| E[attr\|=val] | 选择attr属性的值是 `val` 或值以 `val-` 开头的元素 |
+| E[attr=val]   | 属性值完全等于val                                 |
+| E[attr^=val]  | 属性值里面包含val字符并且在“开始”位置             |
+| E[attr$=val]  | 属性值里面包含val字符并且在“结束”位置             |
+| E[attr*=val]  | 属性值里面包含val字符并且在“任意”位置             |
 
 
 
@@ -853,6 +863,59 @@ div[class*=tao] { /* class*=tao  *=  表示tao 在任意位置都可以 */
     <div class="news-tao-header">属性选择器</div>
     <div class="tao-header">属性选择器</div>
 ~~~
+
+### 存在和值（Presence and value）属性选择器节
+这些属性选择器尝试匹配精确的属性值：
+
+- [attr]：该选择器选择包含 attr 属性的所有元素，不论 attr 的值为何。
+- [attr=val]：该选择器仅选择 attr 属性被赋值为 val 的所有元素。
+- [attr~=val]：该选择器仅选择具有 attr 属性的元素，而且要求 val 值是 attr 值包含的被空格分隔的取值列表里中的一个。
+
+让我们看一个特别的例子，下面是它的的HTML代码： 
+
+```
+我的食谱配料: <i lang="fr-FR">Poulet basquaise</i>
+<ul>
+  <li data-quantity="1kg" data-vegetable>Tomatoes</li>
+  <li data-quantity="3" data-vegetable>Onions</li>
+  <li data-quantity="3" data-vegetable>Garlic</li>
+  <li data-quantity="700g" data-vegetable="not spicy like chili">Red pepper</li>
+  <li data-quantity="2kg" data-meat>Chicken</li>
+  <li data-quantity="optional 150g" data-meat>Bacon bits</li>
+  <li data-quantity="optional 10ml" data-vegetable="liquid">Olive oil</li>
+  <li data-quantity="25cl" data-vegetable="liquid">White wine</li>
+</ul>
+```
+
+
+
+
+
+和一个简单的样式表：
+
+```
+/* 所有具有"data-vegetable"属性的元素将被应用绿色的文本颜色 */
+[data-vegetable] {
+  color: green
+}
+
+/* 所有具有"data-vegetable"属性且属性值刚好为"liquid"的元素将被应用金色的背景颜色 */
+[data-vegetable="liquid"] {
+  background-color: goldenrod;
+}
+
+/* 所有具有"data-vegetable"属性且属性值包含"spicy"的元素，
+即使元素的属性中还包含其他属性值，都会被应用红色的文本颜色 */
+[data-vegetable~="spicy"] {
+  color: red;
+}
+```
+
+
+
+
+
+
 
 ## 伪元素选择器（CSS3)
 
