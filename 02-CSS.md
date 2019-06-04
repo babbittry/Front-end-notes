@@ -2869,6 +2869,8 @@ http://www.iconfont.cn/
 
 伪元素:before和:after添加的内容默认是inline元素**；这个两个伪元素的`content`属性，表示伪元素的内容,设置:before和:after时必须设置其`content`属性，否则伪元素就不起作用。
 
+ 
+
 ## 过渡(CSS3)
 
 过渡（transition)是CSS3中具有颠覆性的特征之一，我们可以在不使用 Flash 动画或 JavaScript 的情况下，当元素从一种样式变换为另一种样式时为元素添加效果。
@@ -2890,13 +2892,13 @@ transition: 要过渡的属性  花费时间  运动曲线  何时开始;
 如果有多组属性变化，还是用逗号隔开。
 ~~~
 
-| 属性                         | 描述                      | CSS  |
-| -------------------------- | ----------------------- | ---- |
-| transition                 | 简写属性，用于在一个属性中设置四个过渡属性。  | 3    |
-| transition-property        | 规定应用过渡的 CSS 属性的名称。      | 3    |
-| transition-duration        | 定义过渡效果花费的时间。默认是 0。      | 3    |
-| transition-timing-function | 规定过渡效果的时间曲线。默认是 "ease"。 | 3    |
-| transition-delay           | 规定过渡效果何时开始。默认是 0。       | 3    |
+| 属性                       | 描述                                                       | CSS  |
+| -------------------------- | ---------------------------------------------------------- | ---- |
+| transition                 | 简写属性，用于在一个属性中设置四个过渡属性。               | 3    |
+| transition-property        | 规定应用过渡的 CSS 属性的名称。                            | 3    |
+| transition-duration        | 定义过渡效果花费的时间。默认是 0。（单位是秒，单位必须写） | 3    |
+| transition-timing-function | 规定过渡效果的时间曲线。默认是 "ease"。                    | 3    |
+| transition-delay           | 规定过渡效果何时开始。默认是 0。                           | 3    |
 
 如果想要所有的属性都变化过渡， 写一个all 就可以
 
