@@ -1452,7 +1452,7 @@ var p1 = createPerson('张三', 22, 'actor');
 ```
 - 自定义构造函数
 ```javascript
-function Person(name,age,job){
+function Person(name,age,job){	//帕斯卡命名，每个字母的首字母都大写，为了和普通函数进行区分
   this.name = name;
   this.age = age;
   this.job = job;
