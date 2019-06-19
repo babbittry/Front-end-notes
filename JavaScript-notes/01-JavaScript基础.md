@@ -1492,7 +1492,7 @@ new会返回这个新对象
 ### 遍历对象的属性
 > 通过for..in语法可以遍历一个对象
 
-​```javascript
+```javascript
 var obj = {};
 for (var i = 0; i < 10; i++) {
   obj[i] = i * 2;
@@ -1521,7 +1521,7 @@ console.log(obj.name); // undefined
 
 - 堆和栈
 
-  ```
+```
   堆栈空间分配区别：
   　　1、栈（操作系统）：由操作系统自动分配释放 ，存放函数的参数值，局部变量的值等。其操作方式类似于数据结构中的栈；
   　　2、堆（操作系统）： 存储复杂类型(对象)，一般由程序员分配释放， 若程序员不释放，由垃圾回收机制回收，分配方式倒是类似于链表。
@@ -1547,7 +1547,7 @@ console.log(obj.name); // undefined
 
 ![1497497865969](media/1497497865969.png)
 
-```javascript
+​```javascript
 // 下面代码输出的结果
 function Person(name,age,salary) {
   this.name = name;
@@ -1563,7 +1563,7 @@ var p = new Person("zs",18,1000);
 console.log(p.name);
 f1(p);
 console.log(p.name);
-```
+  ```
 
 思考：
 
