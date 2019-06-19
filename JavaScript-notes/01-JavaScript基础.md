@@ -1519,13 +1519,23 @@ console.log(obj.name); // undefined
 >
 >引用类型：复杂数据类型，在存储是，变量中存储的仅仅是地址（引用），因此叫做引用数据类型。
 
+简单类型：string  number  boolean  null undefined
+
+复杂类型：比如Object
+
+简单类型存储在内存中的栈中，复杂类型存储在内存中的堆中。
+
+当new Object的时候，在堆上开辟一个空间，并且在栈里开辟一个空间，栈里存储了这个对象的地址。复杂类型赋值的时候，不在堆里开辟新的，只是在栈里开辟一个新的，然后指向堆里的。
+
+![](C:\Users\shinelon\Desktop\Front-end-notes\JavaScript-notes\media\复杂类型的存储.png)
+
 - 堆和栈
 
 ```
   堆栈空间分配区别：
   　　1、栈（操作系统）：由操作系统自动分配释放 ，存放函数的参数值，局部变量的值等。其操作方式类似于数据结构中的栈；
   　　2、堆（操作系统）： 存储复杂类型(对象)，一般由程序员分配释放， 若程序员不释放，由垃圾回收机制回收，分配方式倒是类似于链表。
-  ```
+```
 
 - 注意：JavaScript中没有堆和栈的概念，此处我们用堆和栈来讲解，目的方便理解和方便以后的学习。
 
@@ -1547,7 +1557,7 @@ console.log(obj.name); // undefined
 
 ![1497497865969](media/1497497865969.png)
 
-​```javascript
+```javascript
 // 下面代码输出的结果
 function Person(name,age,salary) {
   this.name = name;
@@ -1567,7 +1577,7 @@ console.log(p.name);
 
 思考：
 
-```javascript
+​```javascript
 //1. 
 var num1 = 10;
 var num2 = num1;
@@ -1600,7 +1610,7 @@ f1(num1, num2);
 console.log(num1);
 console.log(num2);
 console.log(num);
-```
+  ```
 ## 内置对象
 
 JavaScript中的对象分为3种：内置对象、浏览器对象、自定义对象
