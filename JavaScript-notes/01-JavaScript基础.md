@@ -1664,10 +1664,11 @@ Math.floor()/Math.ceil()	 // 向下取整/向上取整
 Math.round()				// 取整，四舍五入
 Math.abs()					// 绝对值
 Math.max()/Math.min()		 // 求最大和最小值
+```
 
 Math.sin()/Math.cos()		 // 正弦/余弦
 Math.power()/Math.sqrt()	 // 求指数次幂/求平方根
-```
+
 
 #### 案例
 
@@ -1679,7 +1680,7 @@ Math.power()/Math.sqrt()	 // 求指数次幂/求平方根
 
 创建 `Date` 实例用来处理日期和时间。Date 对象基于1970年1月1日（世界标准时间）起的毫秒数。
 
-~~~javascript
+```javascript
 // 获取当前时间，UTC世界时间，距1970年1月1日（世界标准时间）起的毫秒数
 var now = new Date();
 console.log(now.valueOf());	// 获取距1970年1月1日（世界标准时间）起的毫秒数
@@ -1688,11 +1689,11 @@ Date构造函数的参数
 1. 毫秒数 1498099000356		new Date(1498099000356)
 2. 日期格式字符串  '2015-5-1'	 new Date('2015-5-1')
 3. 年、月、日……				  new Date(2015, 4, 1)   // 月份从0开始
-~~~
+```
 
 - 获取日期的毫秒形式
 
-​```javascript
+```javascript
 var now = new Date();
 // valueOf用于获取对象的原始值
 console.log(date.valueOf())	
