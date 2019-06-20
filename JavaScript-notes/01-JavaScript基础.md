@@ -1573,18 +1573,20 @@ var p = new Person("zs",18,1000);
 console.log(p.name);
 f1(p);
 console.log(p.name);
-  ```
+```
 
 思考：
 
-​```javascript
+```javascript
 //1. 
 var num1 = 10;
 var num2 = num1;
 num1 = 20;
 console.log(num1);
 console.log(num2);
+```
 
+```javascript
 //2. 
 var num = 50;
 function f1(num) {
@@ -1593,7 +1595,9 @@ function f1(num) {
 }
 f1(num);
 console.log(num);
+```
 
+```javascript
 //3. 
 var num1 = 55;
 var num2 = 66;
@@ -1610,7 +1614,10 @@ f1(num1, num2);
 console.log(num1);
 console.log(num2);
 console.log(num);
-  ```
+```
+
+
+
 ## 内置对象
 
 JavaScript中的对象分为3种：内置对象、浏览器对象、自定义对象
@@ -1685,7 +1692,7 @@ Date构造函数的参数
 
 - 获取日期的毫秒形式
 
-```javascript
+​```javascript
 var now = new Date();
 // valueOf用于获取对象的原始值
 console.log(date.valueOf())	
