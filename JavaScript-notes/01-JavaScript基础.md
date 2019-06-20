@@ -1521,7 +1521,7 @@ console.log(obj.name); // undefined
 
 简单类型：string  number  boolean  null undefined
 
-复杂类型：比如Object
+复杂类型：比如Object、 array
 
 简单类型存储在内存中的栈中，复杂类型存储在内存中的堆中。
 
@@ -1622,7 +1622,7 @@ console.log(num);
 
 JavaScript中的对象分为3种：内置对象、浏览器对象、自定义对象
 
-JavaScript 提供多个内置对象：Math/Array/Number/String/Boolean...
+JavaScript 提供多个内置对象：Math   Array  Number  String  Boolean...
 
 对象只是带有**属性**和**方法**的特殊数据类型。
 
