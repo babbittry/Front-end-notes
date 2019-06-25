@@ -1963,6 +1963,8 @@ console.log(clear(array));
 
 ### 基本包装类型
 
+基本包装类型：把基本数据类型包装成复杂类型
+
 为了方便操作基本数据类型，JavaScript还提供了三个特殊的引用类型：String/Number/Boolean
 
 ```javascript
