@@ -1519,9 +1519,9 @@ console.log(obj.name); // undefined
 >
 >引用类型：复杂数据类型，在存储是，变量中存储的仅仅是地址（引用），因此叫做引用数据类型。
 
-简单类型：string  number  boolean  null undefined
+简单类型：string  number  boolean  null  undefined
 
-复杂类型：比如Object、 array
+复杂类型：比如Object、 array、 date
 
 简单类型存储在内存中的栈中，复杂类型存储在内存中的堆中。
 
@@ -1991,7 +1991,7 @@ var b2 = b1 && true;		// 结果是什么
 
 ### String对象
 
-- 字符串的不可变
+- 字符串的不可变，虽然看上去是字符串变了，其实是开辟了一块新的内存空间，然后改变了地址
 
 ```javascript
 var str = 'abc';
@@ -2023,7 +2023,7 @@ str[0]   		//HTML5，IE8+支持 和charAt()等效
 concat()   		//拼接字符串，等效于+，+更常用
 slice()    		//从start位置开始，截取到end位置，end取不到
 substring() 	//从start位置开始，截取到end位置，end取不到
-substr()   		//从start位置开始，截取length个字符
+substr()   		//从start位置开始，截取length个字符 (重点记这个)
 // 3 位置方法
 indexOf()   	//返回指定内容在元字符串中的位置
 lastIndexOf() 	//从后往前找，只找第一个匹配的
@@ -2077,6 +2077,12 @@ console.log(s.replace(/o/ig, ''));
 ```
 
 - 判断一个字符串中出现次数最多的字符，统计这个次数
+
+  1. 核心算法：利用charAt() 遍历这个字符串
+
+  2. 把每个字符串都存储给对象，如果对象没有该属性，就为1；如果存在了就+1
+
+  3. 遍历对象，得到最大值和该字符
 
 ```javascript
 var s = 'abcoefoxyozzopp';
