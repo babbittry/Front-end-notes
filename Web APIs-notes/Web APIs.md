@@ -36,7 +36,7 @@ console.dir 可以打印返回的元素对象，更好的查看里面的属性�
 - 得到的是对象的集合，可以用遍历来获取所有对象
 - 得到的是动态的
 例子: 获取ol里面的li
-```
+```html
 
 <ol>
 <li>123一二三四五</li>
@@ -58,7 +58,7 @@ console.dir(list);
 ### querySelector()
 HTML5新增的
 返回指定选择器的**第一个对象**
-```
+```html
 
 <div class="box">
 <ul>
@@ -82,6 +82,7 @@ console.log(boxs);
 ### querySelectorAll()
 返回指定选择器的所有对象集合
 用法和querySelector()一样
+
 ### document.body
 获取body元素
 ### document.documentElement
@@ -97,7 +98,7 @@ JavaScript使我们有能力创建动态页面，而事件是可以被JavaScript
 - 事件源   事件被触发的对象 比如按钮
 - 事件类型   如何触发 比如鼠标点击、鼠标经过、键盘按下、滚动滚轮
 - 事件处理程序   通过函数赋值的方式完成
-```
+```html
 
 <button id="btn">按钮</button>
 <script>
@@ -128,6 +129,133 @@ JavaScript可以改变网页内容、结构和样式，我们可以利用DOM操�
 - 从起始位置到终止位置的全部内容，包括Html标签，同时保留空格和换行
 - 能识别HTML标签
 - 可读写的，可以获取元素里面的内容
+
+### 修改表单属性
+
+disabled 	让某个表单被禁用，不能被点击，
+用法：
+```javascript
+btn.onclick = function () {
+    btn.disabled = true;
+    //或者写成下面这种
+    this.disabled = true;
+    //this指向的是时间函数的调用者
+}
+```
+
+**案例**：仿京东显示密码，点击按钮将密码框显示为文本框，并可以查看密码明文
+
+算法：利用一个flag变量，如果是1就切换为文本框，如果是0就切换为密码框
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    form {
+        position: relative;
+        width: 1000px;
+        height: 500px;
+        border: 1px solid red;
+        margin: 100px auto 0;
+    }
+    input {
+        display: block;
+        width: 800px;
+        height: 50px;
+        line-height: 30px;
+        color: #3c3c3c;
+        margin: 50px auto 50px;
+        padding-left: 20px;
+        box-sizing: border-box;
+        border: 1px solid red;
+    }
+    label img {
+        top: 164px;
+        right: 120px;
+        position: absolute;
+        width: 24px;
+    }
+    </style>
+</head>
+<body>
+    <form action="#">
+        <input type="text" id="userName" placeholder="请输入你的用户名">
+        <label for="">
+            <img src="images/闭眼.png" alt="">
+        </label>
+        <input type="password" id="password" placeholder="请输入你的密码">
+    </form>
+    <script>
+    var eye = document.querySelector('img');
+    var password = document.getElementById('password');
+    var flag = 0;
+    eye.onclick = function () {
+        if (flag === 0) {
+            password.type = 'text';
+            eye.src = 'images/睁眼.png';
+            flag = 1;
+        } else {
+            password.type = 'password';
+            eye.src = 'images/闭眼.png';
+            flag = 0;
+        }
+ 
+    }
+    </script>
+</body>
+</html>
+```
+
+### 修改样式属性
+
+#### element.style
+行内样式操作，修改元素样式，如果样式比较少或者功能简单的情况下使用
+注意：
+- 里面的属性是驼峰命名法
+- JS修改的是行内样式，权重比CSS的高
+#### element.className
+类名样式操作，适合样式比较多的情况下使用
+修改了元素的类名
+**注意：**这个方法直接修改了类名，也就是说会覆盖原来的类名，原来的就不生效了
+
+#### 表单事件
+
+获得焦点 onfocus
+失去焦点 onblur
+
+案例：京东搜索框，默认是“手机”两个字，当用户点击搜索框的时候，“手机”两个字消失，当输入文本之后，保持文本内容不变
+
+分析：
+- 如果获得焦点，判断里面是否是默认文字，如果是默认文字，就清空表单内容
+- 如果失去焦点，判断表单是否为空，如果为空，则表单内容改为默认文字
+- 获得焦点的时候，把文本框里的文字变黑
+- 失去焦点的时候，文本框文字变浅
+
+```
+<input type="text" value="手机">
+<script>
+var input = document.querySelector('input');
+input.onfocus = function () {
+    if (this.value === '手机') {
+    	input.value = '';
+    }
+    this.style.color = '#3c3c3c'; 
+}
+input.onblur = function () {
+    if (this.value === '') {
+    	input.value = '手机';
+    }
+    this.style.color = '#999';
+}
+</script>
+```
 
 
 
