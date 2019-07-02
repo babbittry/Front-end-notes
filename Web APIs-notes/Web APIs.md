@@ -224,6 +224,12 @@ btn.onclick = function () {
 类名样式操作，适合样式比较多的情况下使用
 修改了元素的类名
 **注意：**这个方法直接修改了类名，也就是说会覆盖原来的类名，原来的就不生效了
+如果想要保留原先的类名，这样做：
+
+```
+//假设first 是原来的类名，change是想加入的
+this.className = 'first change';
+```
 
 #### 表单事件
 
@@ -255,6 +261,89 @@ input.onblur = function () {
     this.style.color = '#999';
 }
 </script>
+```
+
+案例：密码提示框，选中的时候提示密码的长度和标准，失去焦点的时候，检查密码是否合乎规范
+
+分析：
+- 如果获得焦点，提示密码的长度和标准
+- 如果失去焦点，检查密码是否合乎规范，如果不符合规范，就提示
+- 因为改变的样式比较多，所以用className来修改样式
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    div {
+        width: 600px;
+        margin: 100px auto;
+    }
+    .message {
+        display: inline-block;
+        font-size: 12px;
+        color: #999;
+        background: url(images/message.png) no-repeat left center;
+        background-size: 16px;
+        padding-left: 20px;
+    }
+    .error {
+        display: inline-block;
+        font-size: 12px;
+        color: red;
+        background: url(images/error.png) no-repeat left center;
+        background-size: 16px;
+        padding-left: 20px;
+    }
+    .right {
+        display: inline-block;
+        font-size: 12px;
+        color: green;
+        background: url(images/right.png) no-repeat left center;
+        background-size: 16px;
+        padding-left: 20px;
+    }
+    </style>
+</head>
+<body>
+    <div class="register">
+        <input type="password" class="pwd">
+        <p class="message">请输入6~16位密码</p>
+    </div>
+    <script>
+    var pwd = document.querySelector('.pwd');
+    var message = document.querySelector('.message');
+    pwd.onblur = function() {
+        if (pwd.value.length > 16 || pwd.value.length < 6) {
+            
+            message.className = 'error';
+            message.innerHTML = '您输入的位数不对，要求6~16位';
+        } else {
+            message.className = 'right';
+            message.innerHTML = '对辽~';
+        }
+    }
+    </script>
+</body>
+</html>
+```
+
+### 操作元素总结
+
+```mermaid
+graph LR
+A[操作元素]  -->B[操作元素内容]
+B  -->F[innerText]
+B  -->G[innerHTML]
+A[操作元素]  -->C[操作常见元素属性]
+C -->H[src href title alt等 ]
+A[操作元素]  -->D[操作表单元素属性]
+D -->I[ type value disabled等]
+A[操作元素]  -->E[操作元素样式属性]
+E -->J[element.style]
+E -->K[element.className]
 ```
 
 
