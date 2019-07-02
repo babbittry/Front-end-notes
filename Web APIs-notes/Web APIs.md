@@ -244,7 +244,7 @@ this.className = 'first change';
 - 获得焦点的时候，把文本框里的文字变黑
 - 失去焦点的时候，文本框文字变浅
 
-```
+```html
 <input type="text" value="手机">
 <script>
 var input = document.querySelector('input');
@@ -270,7 +270,7 @@ input.onblur = function () {
 - 如果失去焦点，检查密码是否合乎规范，如果不符合规范，就提示
 - 因为改变的样式比较多，所以用className来修改样式
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -330,7 +330,7 @@ input.onblur = function () {
 </html>
 ```
 
-### 操作元素总结
+### 操作元素小总结
 
 ```mermaid
 graph LR
@@ -346,7 +346,30 @@ E -->J[element.style]
 E -->K[element.className]
 ```
 
+### 排他思想
 
+两层循环，先排除其他人，然后再设置自己的样式
+
+```html
+    <button>按钮1</button>
+    <button>按钮2</button>
+    <button>按钮3</button>
+    <button>按钮4</button>
+    <button>按钮5</button>
+    <script>
+    var btns = document.querySelectorAll('button');
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].onclick = function () {
+            //  1. 先把所有颜色的背景颜色都清空
+            for (var j = 0; j < btns.length; j++) {
+                btns[j].style.backgroundColor = '';
+            }
+            //  2. 再把想要的背景颜色改成pink
+            this.style.backgroundColor = 'pink';
+        }
+    }
+    </script>
+```
 
 
 
