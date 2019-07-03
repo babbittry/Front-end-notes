@@ -14,11 +14,13 @@ Web API是浏览器提供的一套操作浏览器功能和页面元素的API（D
 # DOM
 可以改变网页的内容、结构和样式
 ## DOM树
-![bc38fa01d8a77e9a55d19c7eff93a460.png](en-resource://database/1417:1)
+
+![DOM树](media\DOM树.png)
 
 文档：一个页面就是一个文档  document
 元素：页面中的所有标签都是元素，element
 节点：网页中的所有内容都是节点（标签、属性、文本、注释等），node
+
 **DOM把以上内容都看作是对象**
 
 # DOM操作
@@ -389,9 +391,90 @@ E -->K[element.className]
 - 当点击了图片，当前的页面背景换成点击的图片
 - 核心算法：把当前图片的src路径取过来，给body作为背景
 
+```html
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
 
+        body {
+            background: url(images/bg1.jpg) no-repeat center top;
+        }
 
+        li {
+            list-style: none;
+        }
+
+        .baidu {
+            overflow: hidden;
+            margin: 100px auto;
+            background-color: #fff;
+            width: 410px;
+            padding-top: 3px;
+        }
+
+        .baidu li {
+            float: left;
+            margin: 0 1px;
+            cursor: pointer;
+        }
+
+        .baidu img {
+            width: 100px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <ul class="baidu">
+        <li><img src="images/bg1.jpg" alt=""></li>
+        <li><img src="images/bg2.jpg" alt=""></li>
+        <li><img src="images/bg3.jpg" alt=""></li>
+        <li><img src="images/bg4.jpg" alt=""></li>
+    </ul>
+    <script>
+        //获取元素
+        var images = document.querySelector('.baidu').querySelectorAll('img');
+        for (var i = 0; i < images.length; i++) {
+            //temp 存储原来的背景
+            var temp;
+            images[i].onclick = function () {
+                document.body.style.backgroundImage = 'url(' + this.src + ')';
+                temp = 'url(' + this.src + ')';
+            }
+            images[i].onmouseover = function () {
+                temp = document.body.style.backgroundImage;
+                document.body.style.backgroundImage = 'url(' + this.src + ')';
+            }
+            images[i].onmouseout = function () {
+                document.body.style.backgroundImage = temp;
+            }
+        }
+    </script>
+</body>
+
+</html>
+```
+
+案例： 表单全选取消全选
+
+分析：
+- 点击上面全选复选框，下面所有的复选框都选中（全选）
+- 再次点击全选复选框，下面所有的复选框都不中选（取消全选）
+- 如果下面复选框全部选中，上面全选按钮就自动选中
+- 如果下面复选框有一个没有选中，上面全选按钮就不选中
+- 所有复选框一开始默认都没选中状态
 
 
 
