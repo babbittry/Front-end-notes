@@ -571,6 +571,187 @@ E -->K[element.className]
 </html>
 ```
 
+### 操作元素
+
+#### 获取属性值
+
+- element.属性 	获取内置属性值（元素自带的属性）
+- element.getAttribute('属性')	主要获取自定义的属性（标准），我们定义的属性
+
+#### 设置属性值
+
+- element.属性 = '值'；
+- element.setAttribute('属性', '值')	主要更改自定义的属性
+
+#### 移除属性值
+
+- element.removeAttribute('属性')	主要移除自定义的属性（标准）
+
+#### TAB案例 （重点）
+
+分析：
+- 一个大盒子，里面上下两个小盒子
+- 上面的模块，点击某一个之后，这个的背景色是红色，其余的是灰色（排他思想）
+- 点击某一个之后，显示这个模块对应的内容，其他的隐藏，这个要写到点击事件里面
+- 下面的显示内容和上面的小 li 一一对应
+- 核心思路：
+  - 给上面的tab_list 添加自定义属性，属性号从0开始
+  - 当点击上面的模块，下面的队形的显示模块开始显示，其他的隐藏
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        .tab {
+            width: 800px;
+            height: 500px;
+            margin: 200px auto;
+        }
+        .tab_list {
+            height: 50px;
+            background-color: rgb(162, 162, 162);
+            border-bottom: 2px solid #c81623;
+        }
+        .tab_list ul li {
+            float: left;
+            display: inline-block;
+            width: 150px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .tab_list .current {
+            background-color: #c81623;
+            color: #fff;
+        }
+        .item {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="tab">
+        <div class="tab_list">
+            <ul>
+                <li class="current">商品介绍</li>
+                <li>规格与包装</li>
+                <li>售后保障</li>
+                <li>商品评价(1.1万+)</li>
+                <li>手机社区</li>
+            </ul>
+        </div>
+        <div class="tab_con">
+            <div class="item" style="display: block">
+                商品介绍模块内容
+            </div>
+            <div class="item">
+                规格与包装模块内容
+            </div>
+            <div class="item">
+                售后保障模块内容
+            </div>
+            <div class="item">
+                商品评价模块内容
+            </div>
+            <div class="item">
+                手机社区模块内容
+            </div>
+        </div>
+    </div>
+    <script>
+    var tab_list = document.querySelector('.tab_list');
+    var lis = tab_list.querySelectorAll('li');
+    var items = document.querySelectorAll('.item');
+    for (var i = 0; i < lis.length; i++) {
+        //给5个li设置索引号
+        lis[i].setAttribute('index', i);
+        lis[i].onclick = function () {
+            //干掉其他人
+            for (var j = 0; j < lis.length; j++) {
+                lis[j].className = '';
+            }
+            this.className = 'current';
+            var index = this.getAttribute('index');
+            for (var k = 0; k < items.length; k++) {
+                items[k].style.display = 'none';
+            }
+            items[index].style.display = 'block';
+        }
+
+
+    }
+    </script>
+</body>
+</html>
+```
+
+### H5自定义属性
+
+自定义属性目的：为了保存并使用数据，有些数据保存到页面中，为不是数据库中
+
+
+
+#### 设置H5自定义属性
+
+但是有些自定义属性容易引以歧义，不容易判断是内置属性还是自定义属性，所以H5给我们新增了自定义属性
+H5规定自定义属性以 “data-”  开头
+
+#### 获取H5自定义属性
+
+- 兼容性：element.getAttribute('属性')
+- H5新增：element.dataset.index 或者 element.dataset[ 'index' ]
+
+注意：
+```html
+<div data-list-name="andy"></div>
+<script>
+var div = document.querySelector('div');
+console.log(div.getAttribute('data-list-name'));
+//上下三种方法都可以，但是如果用下面这两种方法的话，要用驼峰命名法
+console.log(div.dataset.listName);
+console.log(div.dataset['listName']);
+</script>
+```
+
+## 节点操作
+
+利用DOM提供的方法获取元素  （逻辑性不强，繁琐）
+- document.getElementById()
+- document.getElementByTagName()
+- document.querySelector  等等
+
+利用	（简单、符合逻辑）
+- 利用父子兄的节点关系获取元素
+- 逻辑性强，但是兼容性差
+
+#### 节点
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
