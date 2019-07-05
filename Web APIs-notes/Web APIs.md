@@ -737,11 +737,66 @@ console.log(div.dataset['listName']);
 - 利用父子兄的节点关系获取元素
 - 逻辑性强，但是兼容性差
 
-#### 节点
+### 节点
 
+![DOM树](media\DOM树.png)
 
+页面中所有的内容（标签、属性、文本、注释等）都是节点。节点用node表示。
 
+HTML DOM树中的所有节点均可通过JavaScript 进行访问，所有HTML节点均可被修改，也可以创建或删除。
 
+一般的，节点至少由nodeType（节点类型）、 nodeName（节点名称）、 nodeValue（节点值）这三个基本属性。
+
+- 元素节点 nodeType 为1
+- 属性节点 nodeType 为2
+- 文本节点 nodeType 为3 （文本节点包括文字、空格、换行等等）
+
+在实际开发中，节点操作主要操作的是元素节点。
+
+### 节点层级
+
+最常见的是**父子兄层级关系**。
+
+#### 父级节点
+
+node.parentNode
+
+注意：得到的离元素最近的父级节点（亲爸爸），如果找不到就返回null
+
+#### 子级节点
+
+parentNode.childNodes     (标准)
+
+返回包含指定节点的子节点的集合，该集合为即时更新的集合
+包含的子节点包含元素节点、文本节点等等
+
+所以用 nodeType 判断，用for循环遍历
+
+parentNode.children     (非标准)
+
+得到所有的子元素节点，虽然是非标准的，但是得到了浏览器的支持，所以以后大量使用这个
+
+parentNode.firstChild
+
+返回第一个子节点，找不到返回null,不管是文本节点还是元素节点都能找到
+
+parentNode.firstElementChild
+
+返回第一个子元素节点，找不到返回null,只返回元素节点（IE9以上才支持）
+
+parentNode.lastChild
+
+返回最后一个子节点，找不到返回null,不管是文本节点还是元素节点都能找到
+
+parentNode.lastElementChild
+
+返回最后一个子元素节点，找不到返回null,只返回元素节点（IE9以上才支持）
+
+实际开发中的办法：
+
+parentNode.children[i]
+
+### 案例
 
 
 
