@@ -796,7 +796,7 @@ parentNode.lastElementChild
 
 parentNode.children[i]
 
-### 案例
+#### 案例
 
 案例：新浪下拉菜单
 
@@ -805,12 +805,208 @@ parentNode.children[i]
 - 导航栏里面的li都要有鼠标经过的效果，所以需要循环注册
 - 核心原理：当鼠标经过li 的时候，孩子的ul 和li 显示，当鼠标离开，则隐藏
 
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>新浪网</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        a {
+            text-decoration: none; 
+        }
+        .nav {
+            width: 800px;
+            margin: 200px auto;
+            position: relative;
+        }
+        .nav>li {
+            width: 80px;
+            height: 100%;
+            line-height: 41px;
+            color: #333;
+            float: left;
+            position: relative;
+            text-align: center;
+        }
+        .nav>li>a:hover {
+            background-color: #eee;
+        }
+
+        .nav li ul {
+            display: none;
+            position: absolute;
+            top: 41px;
+            left: 0;
+            width: 100%;
+            border-left: 1px solid #fecc5b;
+            border-right: 1px solid #fecc5b;
+            box-sizing: border-box;
+        }
+        .nav li ul li {
+            border-bottom: 1px solid #fecc5b;
+/*             width: 50px;
+            text-align: center; */
+            
+        }
+        .nav ul li a:hover {
+            background-color: #FFF5DA;
+        } 
+    </style>
+</head>
+<body>
+    <ul class="nav">
+        <li>
+            <a href="#">微博</a>
+            <ul>
+                <li>
+                    <a href="#">私信</a>
+                </li>
+                <li>
+                    <a href="#">评论</a>
+                </li>
+                <li>
+                    <a href="#">@我</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">微博</a>
+            <ul>
+                <li>
+                    <a href="#">私信</a>
+                </li>
+                <li>
+                    <a href="#">评论</a>
+                </li>
+                <li>
+                    <a href="#">@我</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">微博</a>
+            <ul>
+                <li>
+                    <a href="#">私信</a>
+                </li>
+                <li>
+                    <a href="#">评论</a>
+                </li>
+                <li>
+                    <a href="#">@我</a>
+                </li>
+            </ul>
+        </li>
+
+    </ul>
+    <script>
+    //获取元素
+    var nav = document.querySelector('.nav');
+    var lis = nav.children;
+    //循环注册事件
+    for (var i = 0; i < lis.length; i++) {
+        lis[i].onmouseover = function () {
+            this.children[1].style.display = 'block';
+        }
+        lis[i].onmouseout = function () {
+            this.children[1].style.display = 'none';
+        }
+    }
+    </script>
+</body>
+</html>
+```
+
+#### 兄弟节点
+
+node.nextSibling 得到下一个兄弟节点，包括元素节点和文本节点
+node.previousSibling  得到上一个兄弟节点，包括元素节点和文本节点
+
+//下面两个方法只有IE9以上才能兼容
+node.nextElementSibling 得到下一个兄弟元素节点，只有元素节点
+node.previousElementSibling  得到上一个兄弟元素节点，只有元素节点
+
+#### 创建节点
+
+document.createElement('tagName')
+
+这个方法创建由tagName指定的 HTML 元素，因为这些元素原先不存在，是根据我们的需求动态生成的，所以也称为**动态创建元素节点**。
+
+node.appendChild(child);
+
+它是追加元素，是在指定父节点的子节点的末尾添加。
+
+node.insertBefore(child, 指定元素);
 
 
+#### 留言板案例
 
+分析：
+- 页面组成：一个文本域，一个提交按钮，一个留言板
+- 当点击提交按钮的时候，先判断文本域内容是不是空，如果是空，就警告
+- 如果不是空，就新建一个li，然后把文本域的内容赋值给li，然后在ul里面的前面添加li
 
+####  删除节点
 
+node.removeChild(child);
 
+从DOM中删除一个子节点，返回删除的节点
+
+#### 删除留言案例
+
+案例分析：
+
+- 在留言板案例的基础上添加功能
+- 当把文本域的内容幅值给 li 的时候，多添加一个删除的链接，
+- 循环把所有的链接获取过来，当我们点击一个链接的时候，删除当前链接所在的 li
+- 阻止链接跳转需要添加javascript:void(0);或者 javascript:;
+
+```javascript
+<script>
+        //获取元素
+        var btn = document.querySelector('button');
+        var text = document.querySelector('textarea');
+        var ul = document.querySelector('ul');
+        //注册事件
+        btn.onclick = function () {
+            if (text.value == '') {
+                alert('您没有输入任何内容');
+                return false;
+            } else {
+                var li = document.createElement('li');
+                //将文本域的内容赋值给li，同时后面添加一个删除留言的a链接
+                li.innerHTML = text.value + "<a href='javascript:;'>删除</a>";
+                ul.insertBefore(li, ul.children[0]);
+                var as = document.querySelectorAll('a'); 
+                for (var i = 0; i < as.length; i++) {
+                    as[i].onclick = function () {
+                        //删除的是a当前所在的li
+                        ul.removeChild(this.parentNode);
+                    }
+                }               
+            }
+        }
+    </script>
+```
+
+#### 复制节点（克隆节点）
+
+node.cloneNode()
+这个方法返回一个节点的副本
+
+注意：
+- 如果括号里面的参数为空，那么只是浅拷贝，即只复制节点本身，不克隆里面的子节点
+- 如果括号里面的参数为true，那么是深拷贝，复制标签并且复制里面的内容
 
 
 
