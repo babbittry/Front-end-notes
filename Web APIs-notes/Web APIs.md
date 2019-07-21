@@ -1008,6 +1008,37 @@ node.cloneNode()
 - 如果括号里面的参数为空，那么只是浅拷贝，即只复制节点本身，不克隆里面的子节点
 - 如果括号里面的参数为true，那么是深拷贝，复制标签并且复制里面的内容
 
+#### 三种动态创建元素区别
+
+- document.write()
+  - 文档流执行完毕之后，他会导致页面全部重绘
+- document.innerHTML()
+  - 将内容写入某个DOM节点，不会导致页面全部重绘
+  - 拼接字符串的效率低
+  - 创建多个元素效率更高，（不要拼接字符串，采取数组形式拼接），结构稍显复杂
+- document.createElement()
+  - 创建多个元素效率稍低一点点，但是结构更清晰
+
+**总结**：不同浏览器下，innerHTML比createElement效率高
+
+## DOM重点核心
+
+文档对象模型
+
+### 增
+- appendChild
+- insertBefore
+
+### 删
+- removeChild
+
+### 改
+修改DOM元素的属性，DOM元素的内容、属性、表单的值等
+- 修改元素属性：src、href、title等
+- 修改普通元素内容：innerHTML、innerText
+- 修改表单元素：value、type、disable等
+- 修改元素样式：style、className
+
 
 
 
