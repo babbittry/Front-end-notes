@@ -1039,6 +1039,37 @@ node.cloneNode()
 - 修改表单元素：value、type、disable等
 - 修改元素样式：style、className
 
+### 查
+
+- DOM提供的API方法：getElementById、getElementByTagName古老用法不太推荐
+- H5提供的新方法：querySelecter、querySelectorAll提倡使用
+- 利用节点操作获取元素：父（parentNode）、子（children）、兄（previousElementSibling、nextElementSibling）提倡使用
+
+### 属性操作
+
+- setAttribute ： 设置DOM的属性
+- getAttribute ： 得到DOM的属性
+- removeAttribute ： 移除属性
+
+### 事件操作
+
+| 鼠标事件 | 触发条件 |
+| ------ | ------ |
+| onclick | 鼠标点击左键触发 |
+| onmouseover | 鼠标经过触发 |
+| onmouseout | 鼠标离开触发 |
+| onfocus | 获得鼠标焦点触发 |
+| onblur | 失去鼠标焦点触发 |
+| onmousemove | 鼠标移动触发 |
+| onmouseup | 鼠标弹起触发 |
+| onmousedown | 鼠标按下触发 |
+
+## 事件高级
+
+### 注册事件
+
+
+
 
 
 
