@@ -1068,6 +1068,141 @@ node.cloneNode()
 
 ### 注册事件
 
+给元素添加事件，称为注册时间或者绑定事件。
+
+注册事件有两种方式：传统方式和方法监听注册方式
+
+### 传统注册方式
+
+- 利用on开头的事件onclick
+- <button onclick="alert('hi')"></button>
+- btn.onclick = function () {}
+- 特点：注册事件的**唯一性**
+- 同一个元素同一个事件著能设置一个处理函数，最后注册的处理函数将会覆盖前面注册的处理函数
+
+### 监听注册方式
+
+- W3C标准推荐方式
+- addEventListener() 它是一个方法
+- IE9之前的IE浏览器不支持此方法，可使用attachEvent()代替
+- 特点: 同一个元素同一个事件可以注册多个监听器
+
+### addEventListener() 方法
+
+```javascript
+eventTarget.addEventListener(type, listener[, useCapture])
+```
+
+eventTarget.addEventListener(type, listener[, useCapture]) 方法将指定的监听器注册到eventTarget 上，当该对象触发指定的事件时，就会执行事件处理函数。
+
+该方法接收三个参数：
+
+- type : 事件类型字符串，比如click、mouseover，**注意这里不要带on**，是字符串，带引号
+- listener ： 事件处理函数，事件发生时，会调用该监听函数
+- useCapture : 可选函数，是一个布尔值，默认是false 。学完DOM事件流之后，再进一步学习
+
+### attachEvent
+**该特性非标准，请尽量不要在生产环境中使用它**
+
+```
+eventTarget.attackEvent(eventNameWithon, callback)
+```
+
+eventTarget.attackEvent方法将指定的监听器注册到eventTarget 上，当该对象触发指定的事件时，指定的回调函数将会被执行。
+
+该方法接收两个参数：
+
+- ventNameWithon ： 事件类型字符串，比如onclick，onmouseover， 这里要带on
+- callback : 事件处理函数，当目标触发事件时回调函数将被调用
+
+### 注册事件的兼容性解决方案
+
+```html
+    <button>点击我</button>
+    <script>
+        var btn = document.querySelector('button');
+        function alertWarn () {
+            alert ('warning');
+        }
+        function addEventListener(element, eventName, fn) {
+            //判断浏览器是否支持addEventListener方法
+            if (element.addEventListener) {
+                element.addEventListener (eventName, fn);   //第三个参数，默认是false
+            } else if (element.attachEvent) {
+                element.attachEvent ('on' + eventName, fn);
+            } else {
+                //相当于element.onclick = fn;
+                element['on' + eventName] = fn;
+            }
+        }
+        addEventListener(btn, 'click', alertWarn);
+    </script>
+```
+## 删除事件
+
+### 删除事件的方式
+
+- 传统注册方式
+```
+eventTarget.onclick = null;
+```
+- 方法监听注册方式
+```
+divs[1].addEventListener('click', alertWarn);
+function alertWarn () {
+    alert('warning');
+    divs[1].removeEventListener('click', alertWarn);
+}
+```
+- attach 方式
+```
+divs[2].attachEvent('onclick', alertWarn1);
+function alertWarn1 () {
+    alert('warning');
+    divs[1].detachEvent('click', alertWarn1);
+}
+```
+- 兼容性方案
+参考上面的注册事件的兼容性方式。
+
+## DOM事件流
+
+事件流描述的是从页面中接收事件的顺序。
+
+事件发生时会在元素节点之间按照特定的顺序传播，这个传播过程即DOM事件流。
+
+包括三个阶段：
+1. 事件捕获阶段
+2. 处于目标阶段
+3. 事件冒泡阶段
+
+
+注意:
+- JS代码只能执行捕获或者冒泡其中的一个阶段
+- onclick 和 attachEvent 只能得到冒泡阶段
+- addEventListener (type, listener[, useCapture]) 第三个参数如果是true，表示在事件捕获阶段调用事件处理程序；如果是false（不写默认就是false），表示在事件冒泡阶段电泳事件处理程序。
+- 在实际开发中，我们很少使用事件捕获，我们更关注事件冒泡
+- 有些事件是没有冒泡的，比如onblur、onfocus、onmouseover、onmouseleave
+- 虽然事件冒泡有时候会带来麻烦，但是有时候又会巧妙的做某些事情，我们后面讲解
+
+
+更新到P62
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
