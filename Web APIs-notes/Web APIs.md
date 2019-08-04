@@ -1185,8 +1185,66 @@ function alertWarn1 () {
 - 有些事件是没有冒泡的，比如onblur、onfocus、onmouseover、onmouseleave
 - 虽然事件冒泡有时候会带来麻烦，但是有时候又会巧妙的做某些事情，我们后面讲解
 
+## 事件对象
 
-更新到P62
+- event 就是一个事件对象，写道我们的侦听函数的小括号里面，当形参来看
+- 事件对象只有有了事件才会存在，他是系统给我们自动创建的，不需要我们传递参数
+- 事件对象是我们的事件的一系列相关数据的集合，比如鼠标点击里面就包含了鼠标的相关信息
+- 这个事件对象我们可以自己命名，比如 event、evt 、e 等
+- 事件对象也有兼容性问题。 IE 6、7、8通过 window.event 实现
+
+兼容性写法：
+```
+event = event || windoe.event;
+```
+
+### 事件对象常见的额属性和方法
+
+| 事件对象属性方法    | 说明                                                         |
+| ------------------- | ------------------------------------------------------------ |
+| e.target            | 返回触发事件的对象  标准                                     |
+| e.scrElement        | 返回触发事件的对象  非标准 IE 6  7 8 使用                    |
+| e.type              | 返回事件的类型，比如click、mouseover等，不带 on              |
+| e.cancelBubble      | 该属性阻止冒泡，非标准，IE 6 7 8 使用                        |
+| e.returnValue       | 该属性阻止默认事件（默认行为）非标准 ，IE 6 7 8 使用，比如不让链接跳转 |
+| e.preventDefaule()  | 该方法阻止默认事件（默认行为）标准 ，比如不让链接跳转        |
+| e.stopPropagation() | 阻止冒泡，标准                                               |
+
+
+
+### e.target 和 this 的区别
+
+this 返回的是绑定事件的对象（元素）
+
+e.target 返回的是点击的那个对象，就是谁触发了这个事件
+
+```
+var ul = document.querySelector('ul');
+ul.addEventListener('click', function (e) {
+    console.log(this);
+    console.log(e.target);
+})
+
+// <ul>...</ul>
+// <li>123</li>
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+更新到P64
 
 
 
