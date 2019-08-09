@@ -1229,6 +1229,17 @@ ul.addEventListener('click', function (e) {
 // <li>123</li>
 ```
 
+### 阻止对象默认行为
+
+三种方法：
+- e.preventDefaule();
+是一个方法，适合普通浏览器
+- e.returnValue;
+- 是一个属性，适用于 IE 6 7 8
+- return false;
+没有兼容性问题，但是需要注意后面的语句就不执行了，直接跳出
+
+### 阻止冒泡
 
 
 
