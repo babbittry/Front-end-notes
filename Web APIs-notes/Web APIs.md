@@ -1241,6 +1241,25 @@ ul.addEventListener('click', function (e) {
 
 ### 阻止冒泡
 
+- event.stopPropagation();    // 一般浏览器停止冒泡
+- event.cancelBubble;         // IE 6 7 8 的停止冒泡
+
+```javascript
+var father = document.querySelector('.father');
+var son = document.querySelector('.son');
+father.addEventListener('click', alertName, false);
+son.addEventListener('click', alertName, false);
+document.addEventListener('click',function () {
+    alert('document');
+}, false);
+function alertName (event) {
+    alert(this.getAttribute("class"));
+    event.stopPropagation();    // 停止冒泡
+    event.cancelBubble;         // IE 6 7 8 的停止冒泡
+}
+```
+
+## 事件委托（代理、委派）
 
 
 
@@ -1255,7 +1274,11 @@ ul.addEventListener('click', function (e) {
 
 
 
-更新到P64
+
+
+
+
+更新到P67
 
 
 
