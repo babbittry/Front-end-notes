@@ -1340,6 +1340,28 @@ document.addEventListener('click', function (e) {
 </html>
 ```
 
+## 常用键盘事件
+
+### 常用键盘事件
+
+| 键盘事件 | 触发条件 |
+| ------ | ------ |
+| onkeyup | 某个键盘按键被松开时触发（松开的时候触发） |
+| onkeydown | 某个键盘按键被按下时触发（按下之后一直触发） |
+| onkeypress | 某个键盘按键被按下时触发（按下之后一直触发），但是它不能识别功能键，比如 ctrl、shift 等 |
+
+当按下的时候，keydown 执行在 keypress 之前。
+
+## 键盘事件对象
+
+| 键盘事件对象属性 | 说明 |
+| ------ | ------ |
+| keyCode | 返回该键的 ASCII 值 |
+
+**注意：**
+
+- keyup 和 keydown 事件不区分字母大小写， a 和 A 得到的都是65
+- keypress 区分大小写，a 得到的是97，A 得到的是 65
 
 
 
@@ -1357,7 +1379,9 @@ document.addEventListener('click', function (e) {
 
 
 
-更新到P71
+
+
+更新到P73
 
 
 
