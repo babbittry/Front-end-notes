@@ -1271,6 +1271,74 @@ function alertName (event) {
 
 只操作了一次 DOM ，提高了程序的性能。
 
+## 常用的鼠标事件
+
+| 鼠标事件 | 触发条件 |
+| ------ | ------ |
+| onclick | 鼠标点击左键触发 |
+| onmouseover | 鼠标经过触发 |
+| onmouseout | 鼠标离开触发 |
+| onfocus | 获得鼠标焦点触发 |
+| onblur | 失去鼠标焦点触发 |
+| onmousemove | 鼠标移动触发 |
+| onmouseup | 鼠标弹起触发 |
+| onmousedown | 鼠标按下触发 |
+
+```javascript
+document.addEventListener('click', function (e) {
+    console.log(e);
+});
+```
+
+| 鼠标事件对象 | 说明 |
+| ------ | ------ |
+| e.clientX | 返回鼠标相对于浏览器窗口可视区域的X坐标 |
+| e.clientY | 返回鼠标相对于浏览器窗口可视区域的Y坐标 |
+| e.pageX | 返回鼠标相对于文档页面的X坐标 IE9+ 支持 |
+| e.pageY | 返回鼠标相对于文档页面的Y坐标 IE9+ 支持 |
+| e.screenX | 返回鼠标相对于电脑屏幕的X坐标 |
+| e.screenY | 返回鼠标相对于电脑屏幕的Y坐标 |
+
+### 案例:
+
+跟随鼠标的小鸟:
+
+#### 案例分析
+
+- 鼠标不断的移动,使用鼠标移动事件: mousemove
+- 在页面中移动,所以给 document 注册事件
+- 图片要移动距离,而且不占位置,我们使用绝对定位即可
+- 核心原理,每次鼠标移动,我们都会获得最新的鼠标坐标,把这个 X 和 Y 的坐标做为图片的 top 和 left 值就可以移动图片
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>跟随鼠标的小鸟</title>
+    <style>
+        img {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="images/bird.gif" alt="">
+    <script>
+        var image = document.querySelector('img');
+        document.addEventListener('mousemove', function (e) {
+            // 只要鼠标移动，就会触发这个事件
+            var x = e.pageX;
+            var y = e.pageY;
+            // top 和 left 一定要加 px
+            image.style.left = x - 20 + 'px';
+            image.style.top = y - 20 + 'px';
+        });
+    </script>
+</body>
+</html>
+```
 
 
 
@@ -1287,7 +1355,9 @@ function alertName (event) {
 
 
 
-更新到P67
+
+
+更新到P71
 
 
 
