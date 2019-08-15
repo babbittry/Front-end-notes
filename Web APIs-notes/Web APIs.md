@@ -8,11 +8,17 @@ A -->|浏览器对象模型| F[BOM]
 ```
 
 # API
+
 应用程序编程接口，就是一个工具，以便于能轻松实现想要完成的功能
+
 # Web API
+
 Web API是浏览器提供的一套操作浏览器功能和页面元素的API（DOM和BOM）
+
 # DOM
+
 可以改变网页的内容、结构和样式
+
 ## DOM树
 
 ![DOM树](media\DOM树.png)
@@ -24,8 +30,11 @@ Web API是浏览器提供的一套操作浏览器功能和页面元素的API（D
 **DOM把以上内容都看作是对象**
 
 # DOM操作
+
 ## 获取元素
+
 ### getElementById()
+
 注意：
 - 因为文档页面从上往下加载，所以先有标签，然后才能getElementById
 - 参数是字符串，所以需要加引号
@@ -34,12 +43,13 @@ Web API是浏览器提供的一套操作浏览器功能和页面元素的API（D
 console.dir 可以打印返回的元素对象，更好的查看里面的属性和方法
 
 ### getElementsByTagName()
+
 - 参数是字符串，所以需要加引号d
 - 得到的是对象的集合，可以用遍历来获取所有对象
 - 得到的是动态的
 例子: 获取ol里面的li
-```html
 
+```html
 <ol>
 <li>123一二三四五</li>
 <li>123上山打老虎</li>
@@ -53,15 +63,19 @@ var ol = document.getElementsByTagName('ol');
 var list = ol[0].getElementsByTagName('li');
 console.log(list);
 console.dir(list);
-
 ```
-### getElementsByClassName()
-类名选择器
-### querySelector()
-HTML5新增的
-返回指定选择器的**第一个对象**
-```html
 
+### getElementsByClassName()
+
+类名选择器
+
+### querySelector()
+
+HTML5新增的
+
+返回指定选择器的**第一个对象**
+
+```html
 <div class="box">
 <ul>
 <li>15212</li>
@@ -79,15 +93,19 @@ HTML5新增的
 var boxs = document.querySelector('.box');
 console.log(boxs);
 </script>
-
 ```
+
 ### querySelectorAll()
+
 返回指定选择器的所有对象集合
 用法和querySelector()一样
 
 ### document.body
+
 获取body元素
+
 ### document.documentElement
+
 获取html元素
 
 ## 事件基础
@@ -100,17 +118,18 @@ JavaScript使我们有能力创建动态页面，而事件是可以被JavaScript
 - 事件源   事件被触发的对象 比如按钮
 - 事件类型   如何触发 比如鼠标点击、鼠标经过、键盘按下、滚动滚轮
 - 事件处理程序   通过函数赋值的方式完成
-```html
 
+
+```html
 <button id="btn">按钮</button>
 <script>
-var btn = document.getElementById('btn');
-btn.onclick = function () {
-alert('触发事件');
-}
+    var btn = document.getElementById('btn');
+    btn.onclick = function () {
+        alert('触发事件');
+    }
 </script>
-
 ```
+
 
 事件都有：
 
@@ -228,13 +247,17 @@ btn.onclick = function () {
 ### 修改样式属性
 
 #### element.style
+
 行内样式操作，修改元素样式，如果样式比较少或者功能简单的情况下使用
 注意：
 - 里面的属性是驼峰命名法
 - JS修改的是行内样式，权重比CSS的高
+- 
 #### element.className
+
 类名样式操作，适合样式比较多的情况下使用
 修改了元素的类名
+
 **注意：**这个方法直接修改了类名，也就是说会覆盖原来的类名，原来的就不生效了
 如果想要保留原先的类名，这样做：
 
@@ -476,8 +499,6 @@ E -->K[element.className]
 - 如果下面复选框有一个没有选中，上面全选按钮就不选中
 - 所有复选框一开始默认都没选中状态
 - 下面复选框需要全部选中，上面全选才能选中做法：给下面所有复选框绑定点击事件，每次点击，都要循环查看下面所有的复选框是否有没选中的，如果有一个没选中的上面全选就不选中。
-
-
 
 ```html
 <!DOCTYPE html>
@@ -1363,10 +1384,128 @@ document.addEventListener('click', function (e) {
 - keyup 和 keydown 事件不区分字母大小写， a 和 A 得到的都是65
 - keypress 区分大小写，a 得到的是97，A 得到的是 65
 
+### 案例1:
 
+京东按下 s 键定位到搜索框:
 
+检测用户是否按下了 s 键盘，如果按下 s 键，就把光标定位到搜索框里面。
 
+#### 案例分析
 
+- 利用键盘事件对象里面的 keyCode 判断用户是否按下的是 s 键
+- 搜索框获得焦点的方法: 利用 js 里面的 focus() 方法
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>京东搜索框</title>
+</head>
+<body>
+    <input type="text" name="" id="">
+    <script>
+        var input = document.querySelector('input');
+        document.addEventListener('keyup', function (e) {
+            if (e.keyCode == 83) {
+                input.focus();
+            }
+        });
+    </script>
+</body>
+</html>
+```
+
+### 案例2:
+
+快递单号查询:
+
+查询快递单号的时候，上面一个更大的盒子显示同样的内容（这里的字号更大）。
+
+![快递单号查询](media\express.png)
+
+#### 案例分析
+
+- 表单检测用户输入：给表单添加键盘事件
+- 同时把快递单号里面的值（value）获取过来赋值给 con 盒子（innerText）作为内容
+- 当失去焦点的时候，就隐藏这个 con 盒子。
+- 当获得焦点的时候，如果快递单号里面不为空，就显示 con 盒子。
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+    .search {
+        position: relative;
+        width: 178px;
+        margin: 100px;
+    }
+    .con {
+        display: none;;
+        position: absolute;
+        top: -40px;
+        width: 171px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        padding: 5px 0;
+        font-size: 18px;
+        line-height: 20px;
+        color: #333;
+    }
+    .con::before {
+        content: '';
+        width: 0;
+        height: 0;
+        position: absolute;
+        top: 28px;
+        left: 18px;
+        border: 8px solid #000;
+        border-style: solid dashed dashed;
+        border-color: #fff transparent transparent;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="search">
+        <div class="con">123</div>
+        <input type="text" placeholder="请输入您的快递单号">
+    </div>
+    <script>
+    var input = document.querySelector('input');
+    var con = document.querySelector('.con');
+    input.addEventListener('keyup', function(e) {
+        if (this.value == '') {
+            con.style.display = 'none';
+        } else {
+            con.style.display = 'block';
+            con.innerText = this.value;
+        }
+    });
+    // 当失去焦点的时候，就隐藏这个 con 盒子。
+    input.addEventListener('blur', function() {
+        con.style.display = 'none';
+    });
+    // 当获得焦点的时候，如果内容不为空，就显示这个 con 盒子。
+    input.addEventListener('focus', function() {
+        if (this.value !== '') {
+            con.style.display = 'block';
+        }
+    });
+    </script>
+</body>
+</html>
+```
+
+**注意：**
+
+keydown 和 keypress 触发的时候，文字还没有落入文本框中。
+
+keyup 触发的时候，文字已经输入到文本框中。
+
+# BOM
+
+## BOM导读
 
 
 
