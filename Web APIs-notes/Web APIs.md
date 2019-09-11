@@ -1507,6 +1507,29 @@ keyup 触发的时候，文字已经输入到文本框中。
 
 ## BOM导读
 
+BOM(Brower Object Model) 即**浏览器对象模型**，它提供了独立于内容而与**浏览器窗口进行交互的对象**，其核心对象是window。
+
+BOM 是由一系列相关的对象构成，并且每个对象都提供了很多方法和属性。
+
+BOM 缺乏标准，JavaScript 语法的标准化组织是 ECMA，DOM 的标准化组织是 W3C，BOM 最初是 Netscape 浏览器标准的一部分。
+
+## BOM 的组成：
+
+BOM 比 DOM 更大，它包括 DOM。
+
+```mermaid
+graph TD
+A[window] -->B(document)
+A[window] -->C(location)
+A[window] -->D(navigation)
+A[window] -->E(screen)
+A[window] -->F(history)
+```
+
+window 对象是浏览器的顶级对象，它具有双重角色。
+
+- 它是 JS 访问浏览器窗口的一个接口。
+- 它是一个全局对象，定义在全局作用域中的变量、函数都会变成 window 对象的属性和方法。
 
 
 
@@ -1520,7 +1543,8 @@ keyup 触发的时候，文字已经输入到文本框中。
 
 
 
-更新到P73
+
+更新到P78 
 
 
 
