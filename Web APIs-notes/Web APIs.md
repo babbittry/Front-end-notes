@@ -1511,7 +1511,7 @@ BOM(Brower Object Model) 即**浏览器对象模型**，它提供了独立于内
 
 BOM 是由一系列相关的对象构成，并且每个对象都提供了很多方法和属性。
 
-BOM 缺乏标准，JavaScript 语法的标准化组织是 ECMA，DOM 的标准化组织是 W3C，BOM 最初是 Netscape 浏览器标准的一部分。
+BOM 缺乏标准，JavaScript 语法的标准化组织是 ECMA，DOM 的标准化组织是 W3C，BOM 最初是 Netscape 浏览器标准的一部分。每个浏览器都有自己的标准。
 
 ## BOM 的组成：
 
@@ -1531,6 +1531,62 @@ window 对象是浏览器的顶级对象，它具有双重角色。
 - 它是 JS 访问浏览器窗口的一个接口。
 - 它是一个全局对象，定义在全局作用域中的变量、函数都会变成 window 对象的属性和方法。
 
+在调用的时候可以省略 window，前面学习的对话框都属于 window 对象方法，如 alert()、prompt() 等。
+
+## window 对象的常见事件
+
+### 窗口加载事件
+
+#### 窗口加载事件
+
+```javascript
+window.onload = function() {}
+或者
+window.addEventListener("load",function(){});
+```
+
+window.onload 是窗口（页面）加载事件，当文档内容完全加载完成后会触发该事件（包括图像、脚本文件、CSS文件等）。
+
+window.onload 只能写一次，当写了很多个的时候，只有最后一个起作用， 所以推荐第二种写法。
+
+#### DOM加载事件
+
+```javascript
+window.addEventListener("DOMContentLoaded",function(){});
+```
+
+这个事件当 DOM 加载完成时触发，不包含 CSS、图片、flash 等。
+
+IE9+ 支持。
+
+### 调整窗口大小事件
+
+```javascript
+window.onresize = function() {}
+或者
+window.addEventListener("resize",function(){});
+```
+
+这是调整窗口大小的时候的触发事件。包括窗口高度和宽度。
+
+经常用来实现响应式布局。 window.inner.width 当前屏幕的宽度
+
+### 定时器
+
+window 对象提供了2个好用的方法——定时器：
+
+- setTimeout()
+- setInterval()
+
+```
+window.setTimeout(调用函数， [延迟的毫秒数])；
+```
+
+- setTimeout() 方法用于设置一个定时器，该定时器在定时器到期后执行调用函数。
+- 这个 window 在调用的时候可以省略。
+- 这个延时时间单位是毫秒，可以省略，如果省略默认是0。
+- 这个调用函数可以直接写函数，还可以写函数名，函数名后面不写括号。
+- 页面中可能有很多的定时器，我们经常给定时器加标识符（名字）。
 
 
 
@@ -1540,11 +1596,7 @@ window 对象是浏览器的顶级对象，它具有双重角色。
 
 
 
-
-
-
-
-更新到P78 
+更新到P81
 
 
 
