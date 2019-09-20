@@ -1578,16 +1578,40 @@ window 对象提供了2个好用的方法——定时器：
 - setTimeout()
 - setInterval()
 
-```
+```javascript
 window.setTimeout(调用函数， [延迟的毫秒数])；
 ```
 
 - setTimeout() 方法用于设置一个定时器，该定时器在定时器到期后执行调用函数。
 - 这个 window 在调用的时候可以省略。
 - 这个延时时间单位是毫秒，可以省略，如果省略默认是0。
-- 这个调用函数可以直接写函数，还可以写函数名，函数名后面不写括号。
+- 这个调用函数可以直接写函数，还可以写函数名，**函数名后面不写括号**。
 - 页面中可能有很多的定时器，我们经常给定时器加标识符（名字）。
 
+### 停止 setTimeout() 定时器
+
+```javascript
+window.clearTimeout(timeoutID)
+```
+
+-  window 可以省略
+-  里面的参数是定时器的标识符
+
+### setInterval() 定时器
+
+```javascript
+window.setInterval(调用函数， [延迟的毫秒数])；
+```
+
+setInterval() 方法重复调用一个函数，每隔这个时间，就去调用一次回调函数
+
+### 倒计时效果
+
+分析：
+
+- 这个倒计时是不断变化的，所以使用 setInterval() 来实现
+- 三个黑色盒子里面分别放时分秒
+- 三个黑子盒子的利用 innerHTML 放入计算的小时分钟秒数
 
 
 
@@ -1596,7 +1620,6 @@ window.setTimeout(调用函数， [延迟的毫秒数])；
 
 
 
-更新到P81
 
 
 
@@ -1626,3 +1649,4 @@ window.setTimeout(调用函数， [延迟的毫秒数])；
 
 
 
+更新到P85
