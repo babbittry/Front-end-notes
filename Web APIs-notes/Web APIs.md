@@ -1612,6 +1612,51 @@ setInterval() 方法重复调用一个函数，每隔这个时间，就去调用
 - 这个倒计时是不断变化的，所以使用 setInterval() 来实现
 - 三个黑色盒子里面分别放时分秒
 - 三个黑子盒子的利用 innerHTML 放入计算的小时分钟秒数
+- 第一次之前也是间隔一定的毫秒数，所以在定时器的前面先调用一下刷新时间的函数，防止第一次刷新之前有空白
+
+```html
+<body>
+    <div>
+        <span class="hour">1</span>
+        <span class="minute">2</span>
+        <span class="second">3</span>
+    </div>
+    <script>
+    var hour = document.querySelector('.hour');
+    var minute = document.querySelector('.minute');
+    var second = document.querySelector('.second');
+    var inputTime = +new Date('2019-9-22 18:00:00');
+    // 在定时器获取之前，先运行一次，这样不会显示原始默认的1 2 3
+    getInterval();
+    // 每秒钟获取一次事件
+    setInterval(getInterval, 1000);
+    function getInterval() {
+            var nowTime = +new Date();
+            var interval = (inputTime - nowTime) / 1000;     //两个日期相差的秒数
+            var hours, minutes, seconds;
+            hours =  Math.floor(interval / 60 / 60 % 24);
+            hours = hours < 10 ? '0' + hours : hours;
+            hour.innerHTML = hours;
+            minutes =  Math.floor(interval / 60 % 60);
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            minute.innerHTML = minutes;
+            seconds =  Math.floor(interval % 60);
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+            second.innerHTML = seconds;
+        }
+    </script>
+</body>
+```
+
+### 清除定时器
+
+```javascript
+window.clearInterval(intervalID)；
+```
+
+-  window 可以省略
+-  里面的参数是定时器的标识符
+
 
 
 
