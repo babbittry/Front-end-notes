@@ -1657,6 +1657,68 @@ window.clearInterval(intervalID)；
 -  window 可以省略
 -  里面的参数是定时器的标识符
 
+```html
+<body>
+    <button class="begin">开始定时器</button>
+    <button class="stop">结束定时器</button>
+    <script>
+        var i = 1;
+        var begin = document.querySelector('.begin');
+        var stop = document.querySelector('.stop');
+        var timer = null; //全局变量，null 是一个空对象
+        begin.addEventListener('click', function() {
+            timer = setInterval(function() {
+                console.log('你好啊' + i);
+                i = i + 1;
+            }, 1000);
+        });
+        stop.addEventListener('click', function() {
+            clearInterval(timer);
+        });
+    </script>
+</body>
+```
+
+### 发送短信案例
+
+点击发送验证码之后，该按钮在60秒只能不能再被点击，防止重复发送短信
+
+#### 分析
+
+- 点击按钮之后，将按钮禁用，disable 为 true
+- 一秒钟修改一次 button 里面的内容
+- 定义一个变量为秒数，这个数值定时变化，如果为0，说明时间到，按钮恢复原始状态
+
+```html
+<body>
+    手机号码：
+    <input type="number" name="" id="">
+    <button>发送</button>
+    <script>
+        var btn = document.querySelector('button');
+        btn.addEventListener('click', function() {
+            btn.disabled = true;
+            var i = 60;
+            var timer = setInterval(function() {
+                if (i == 0) {
+                    clearInterval(timer);
+                    btn.disabled = false;
+                    btn.innerHTML = '发送验证码';
+                    i = 60;
+                } else {
+                    btn.innerHTML = i + '秒之后可以再次点击';
+                    i--;
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+```
+
+### this 的指向问题
+
+this 的指向在函数定义的时候是确定不了的，只有函数执行的时候才能确定 this 到底指向谁，一般情况下 this 的最终指向的是那个调用它的对象。
+
 
 
 
