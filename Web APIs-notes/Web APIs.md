@@ -1774,7 +1774,112 @@ JS 的一大特点就是单线程，也就是说，同一时间只能做一件�
 
 由于主现程不断地重复获得任务、执行任务、再获取任务、再执行，所以这种机制被称为**事件循环（evwnt loop）**。
 
-### location 对象
+## location 对象
+
+window 对象给我们提供了一个 location 属性用于获取或设置窗体的URL，并且可以用于解析URL。因为这个属性返回的是一个对象，所以我们将这个属性也称为 location 对象。
+
+### URL
+
+统一资源定位符（Uniform Resource Locator，URL）是互联网上标准资源的地址。互联网上的每个文件都有一个唯一的URL，它包含的信息指出文件的位置以及浏览器应该怎么处理它。
+
+URL 的一般语法结构为：
+```
+porotocol：//host[:port]/path/[?query]#fragment
+http://www.itcast.cn/index.html?name=andy&age=18#link
+```
+
+| 组成     | 说明                                                         |
+| -------- | ------------------------------------------------------------ |
+| protocol | 通信协议，常用的http、ftp、maito等                           |
+| host     | 主机（域名）                                                 |
+| port     | 端口号，可选，省略时使用默认断开，如http的默认端口80         |
+| path     | 路径，由零或多个“/”格开的字符串，一般用来表示主机上的一个目录或者文件地址 |
+| query    | 参数，以键值对的形式，通过符号 & 分割开来                    |
+| fragment | 片段，# 后面的内容常见于链接，锚点                           |
+
+### location 对象的属性
+
+| location 对象属性 | 返回值                                 |
+| ----------------- | -------------------------------------- |
+| location.href     | 获取或者设置整个 URL                   |
+| location.host     | 返回主机（域名）                       |
+| location.port     | 返回端口号，如果未写返回空字符串       |
+| location.pathname | 返回路径                               |
+| location.search   | 返回参数                               |
+| location.hash     | 返回片段，# 后面内容，常见于链接、锚点 |
+
+#### 5秒钟之后自动跳转页面
+
+案例分析：
+
+- 利用定时器做倒计时效果
+- location.href 跳转页面
+
+```html
+    <div>将在5秒钟之后跳转到首页！</div>
+    <script>
+        setTimeout(function() {
+            location.href = 'http://www.baidu.com';
+        }, 5000);
+    </script>
+```
+
+#### 获取 URL 参数数据
+
+主要练习数据在不同页面之间的传递
+
+案例分析：
+
+- 第一个登陆页面，里面有提交表单，action 提交到 index.html 页面
+- 第二个页面可以使用第一个页面的参数，利用了 location.search 参数
+- 截取字符串用 substr
+- 分隔符，将 = 前后的分隔开
+
+login.html :
+
+```html
+<form action="index.html">
+    <input type="text" name="username" id="">
+    <input type="submit" value="登录">
+</form>
+```
+
+index.html :
+
+```html
+<div></div>
+<script>
+    // substr(起始位置, 截取几个字符)
+    var params = location.search.substr(1);
+    var arr = params.split('=');
+    var div = document.querySelector('div');
+    div.innerHTML = '欢迎您！会员' + arr[1] + '！';
+</script>
+```
+
+### location 常见方法
+
+| location 对象方法  | 返回值                                                       |
+| ------------------ | ------------------------------------------------------------ |
+| location.assign()  | 跟 href 一样，可以跳转页面                                   |
+| location.replace() | 替换当前页面，因为不记录历史，所以不能后退页面               |
+| location.reload()  | 重新加载页面，相当于刷新按钮或者 F5，如果参数为true，强制刷新 ctrl + F5 |
+
+## navigator 对象
+
+navigator对象包含有关浏览器的信息，它有很多属性，我们最常用的是userAgent，该属性可以返回由客户机发送服务器的useragent头部的值。
+
+## history 对象
+
+window对象给我们提供了一个history对象，与浏览器历史记录进行交互。该对象包含用户（在浏览器窗口中）访问过的URL。
+
+| history 对象方法 | 作用                                                         |
+| ---------------- | ------------------------------------------------------------ |
+| back()           | 后退功能                                                     |
+| forward()        | 前进功能                                                     |
+| go(参数)         | 前进后退功能，参数如果是1，前进一个页面，如果是-1，后退一个页面 |
+
+history 对象在一般的实际开发中比较少用，但是会在一些 OA 办公系统中见到。
 
 
 
@@ -1810,9 +1915,4 @@ JS 的一大特点就是单线程，也就是说，同一时间只能做一件�
 
 
 
-
-
-
-
-
-更新到P92
+更新到P97
