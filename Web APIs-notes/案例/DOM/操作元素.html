@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    button {
+        display: block;
+        margin: 50px auto 0;
+        width: 200px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 26px;
+        color: #3c3c3c;
+        background-color: pink;
+        border: 0;
+    }
+    div {
+        margin: 20px auto 0;
+        width: 500px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 26px;
+        color: #3c3c3c;
+        background-color: skyblue;
+        text-align: center;
+    }
+    p {
+        display: block;
+        margin: 20px auto 0;
+        width: 500px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 26px;
+        color: #3c3c3c;
+        background-color: skyblue;
+        text-align: center;
+    }
+    </style>
+</head>
+<body>
+    <button id="btn">刷新时间</button>
+    <div>当前时间是：</div>
+    <p></p>
+    <script>
+
+    function getTime() {
+        var d = new Date();
+        console.log('当前时间是：');
+        return d.getFullYear() + '年' + (d.getMonth() + 1)  + '月' + d.getDate() + '日' + d.getHours() + '时' + d.getMinutes()+ '分钟' + d.getSeconds() + '秒';
+    }
+    
+    var btn = document.getElementById('btn');
+    var div = document.querySelector('div');
+    btn.onclick = function () {
+        div.innerText = getTime();
+    }
+    var p = document.querySelector('p');
+    p.innerText = getTime();
+    </script>
+</body>
+</html>

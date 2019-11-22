@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table {
+            width: 800px;
+            height: 500px;
+            margin: 0 auto;
+            border: 1px solid #999;
+            text-align: center;
+        }
+        table tbody tr {
+            background-color: rgb(163, 163, 163);
+        }
+        thead {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th><input type="checkbox" name="" id="checkAll" ></th>
+                <th>商品</th>
+                <th>价格</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="checkbox" name="" id=""></td>
+                <td>iPhone Xs Max</td>
+                <td>10000</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="" id=""></td>
+                <td>iPad Pro</td>
+                <td>5000</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="" id=""></td>
+                <td>iWatch</td>
+                <td>3000</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="" id=""></td>
+                <td>AirPods</td>
+                <td>1000</td>         
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        var checkAll = document.querySelector('#checkAll');
+        var trs = document.querySelector('tbody').querySelectorAll('tr');
+        var tbCheck = document.querySelector('tbody').getElementsByTagName('input');
+        for (var i = 0; i < trs.length; i++) {
+            trs[i].onmouseover = function () {
+                this.style.backgroundColor = 'rgb(200, 200, 200)';
+            }
+            trs[i].onmouseout = function () {
+                this.style.backgroundColor = '';
+            }
+        }
+        checkAll.onclick = function () {
+            for (var j = 0; j < tbCheck.length; j++) {
+                tbCheck[j].checked = checkAll.checked;
+            }
+        }
+        //下面的全部选中，上面的就选中
+        for (var i = 0; i < tbCheck.length; i++) {
+            tbCheck[i].onclick = function () {
+                // flag 控制全选按钮是否被选中
+                var flag = true;
+                for (var j = 0; j < tbCheck.length; j++) {
+                    if (!(tbCheck[j].checked)) {
+                        flag = false;
+                        break;      // 退出for循环，提高运行效率
+                    }
+                }
+                checkAll.checked = flag;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button>点击我</button>
+    <script>
+        var btn = document.querySelector('button');
+        function alertWarn () {
+            alert ('warning');
+        }
+        function addEventListener(element, eventName, fn) {
+            //判断浏览器是否支持addEventListener方法
+            if (element.addEventListener) {
+                element.addEventListener (eventName, fn);   //第三个参数，默认是false
+            } else if (element.attachEvent) {
+                element.attachEvent ('on' + eventName, fn);
+            } else {
+                //相当于element.onclick = fn;
+                element['on' + eventName] = fn;
+            }
+        }
+        addEventListener(btn, 'click', alertWarn);
+    </script>
+</body>
+</html>

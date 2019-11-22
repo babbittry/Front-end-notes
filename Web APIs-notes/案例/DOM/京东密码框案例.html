@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    form {
+        position: relative;
+        width: 1000px;
+        height: 500px;
+        border: 1px solid red;
+        margin: 100px auto 0;
+    }
+    input {
+        display: block;
+        width: 800px;
+        height: 50px;
+        line-height: 30px;
+        color: #3c3c3c;
+        margin: 50px auto 50px;
+        padding-left: 20px;
+        box-sizing: border-box;
+        border: 1px solid red;
+    }
+    label img {
+        top: 164px;
+        right: 120px;
+        position: absolute;
+        width: 24px;
+    }
+    </style>
+</head>
+<body>
+    <form action="#">
+        <input type="text" id="userName" placeholder="请输入你的用户名">
+        <label for="">
+            <img src="images/闭眼.png" alt="">
+        </label>
+        <input type="password" id="password" placeholder="请输入你的密码">
+    </form>
+    <script>
+    var eye = document.querySelector('img');
+    var password = document.getElementById('password');
+    var flag = 0;
+    eye.onclick = function () {
+        if (flag === 0) {
+            password.type = 'text';
+            eye.src = 'images/睁眼.png';
+            flag = 1;
+        } else {
+            password.type = 'password';
+            eye.src = 'images/闭眼.png';
+            flag = 0;
+        }
+ 
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .box {
+        position: relative;
+        width: 60px;
+        height: 70px;
+        margin: 200px auto;
+        font-size: 12px;
+        text-align: center;
+        color: #f40;
+    }
+    .box img {
+        width: 60px;
+        margin-top: 5px;
+    }
+    .close-btn {
+        position: absolute;
+        top: -1px;
+        left: -16px;
+        width: 14px;
+        height: 14px;
+        border: 1px solid #ccc;
+        line-height: 14px;
+        font-family: Arial, Helvetica, sans-serif;
+        /* 把光标编程小手的样子 */
+        cursor: pointer;
+    }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img src="images/tao.jpg" alt="">
+        <i class="close-btn">x</i>
+    </div>
+    <script>
+    var btn = document.querySelector('.close-btn');
+    var box = document.querySelector('.box');
+    btn.onclick = function () {
+        box.style.display = 'none';
+    }
+    </script>
+</body>
+</html>

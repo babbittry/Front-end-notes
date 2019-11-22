@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button>按钮</button>
+    <input type="text" value="输入内容" id="">
+    <script>
+    var btn = document.querySelector('button');
+    var input = document.querySelector('input');
+    btn.onclick = function () {
+        btn.disabled = true;
+        input.value = '点击了';
+    }
+    </script>
+</body>
+</html>

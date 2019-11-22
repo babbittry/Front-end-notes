@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        // substr(起始位置, 截取几个字符)
+        var params = location.search.substr(1);
+        var arr = params.split('=');
+        var div = document.querySelector('div');
+        div.innerHTML = '欢迎您！会员' + arr[1] + '！';
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            margin: 200px 200px;
+        }
+
+        div span {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            font-size: 26px;
+            background-color: #666;
+            color: #fff;
+            line-height: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span class="hour">1</span>
+        <span class="minute">2</span>
+        <span class="second">3</span>
+    </div>
+    <script>
+    var hour = document.querySelector('.hour');
+    var minute = document.querySelector('.minute');
+    var second = document.querySelector('.second');
+    var inputTime = +new Date('2019-9-22 18:00:00');
+    // 在定时器获取之前，先运行一次，这样不会显示原始默认的1 2 3
+    getInterval();
+    // 每秒钟获取一次事件
+    setInterval(getInterval, 1000);
+    function getInterval() {
+            var nowTime = +new Date();
+            var interval = (inputTime - nowTime) / 1000;     //两个日期相差的秒数
+            var hours, minutes, seconds;
+            hours =  Math.floor(interval / 60 / 60 % 24);
+            hours = hours < 10 ? '0' + hours : hours;
+            hour.innerHTML = hours;
+            minutes =  Math.floor(interval / 60 % 60);
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            minute.innerHTML = minutes;
+            seconds =  Math.floor(interval % 60);
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+            second.innerHTML = seconds;
+        }
+    </script>
+</body>
+
+</html>

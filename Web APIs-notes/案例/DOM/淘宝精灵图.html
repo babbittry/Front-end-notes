@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    ul {
+        list-style: none;
+    }
+    .box {
+        width: 250px;
+        margin: 100px auto;
+    }
+    .box li {
+        float: left;
+        width: 24px;
+        height: 24px;
+        background-color: skyblue;
+        margin: 15px;
+        background: url(images/淘宝精灵图.png)
+    }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+        </ul>
+    </div>
+
+    <script>
+    var lists = document.querySelectorAll('li');
+    for (var i = 0; i < lists.length; i++) {
+        var index = i * 44;
+        lists[i].style.backgroundPosition = '0 -' + index + 'px';
+    }
+    </script>
+</body>
+</html>

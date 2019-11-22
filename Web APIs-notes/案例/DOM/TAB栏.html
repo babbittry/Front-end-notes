@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        .tab {
+            width: 800px;
+            height: 500px;
+            margin: 200px auto;
+        }
+        .tab_list {
+            height: 50px;
+            background-color: rgb(162, 162, 162);
+            border-bottom: 2px solid #c81623;
+        }
+        .tab_list ul li {
+            float: left;
+            display: inline-block;
+            width: 150px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .tab_list .current {
+            background-color: #c81623;
+            color: #fff;
+        }
+        .item {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="tab">
+        <div class="tab_list">
+            <ul>
+                <li class="current">商品介绍</li>
+                <li>规格与包装</li>
+                <li>售后保障</li>
+                <li>商品评价(1.1万+)</li>
+                <li>手机社区</li>
+            </ul>
+        </div>
+        <div class="tab_con">
+            <div class="item" style="display: block">
+                商品介绍模块内容
+            </div>
+            <div class="item">
+                规格与包装模块内容
+            </div>
+            <div class="item">
+                售后保障模块内容
+            </div>
+            <div class="item">
+                商品评价模块内容
+            </div>
+            <div class="item">
+                手机社区模块内容
+            </div>
+        </div>
+    </div>
+    <script>
+    var tab_list = document.querySelector('.tab_list');
+    var lis = tab_list.querySelectorAll('li');
+    var items = document.querySelectorAll('.item');
+    for (var i = 0; i < lis.length; i++) {
+        //给5个li设置索引号
+        lis[i].setAttribute('index', i);
+        lis[i].onclick = function () {
+            //干掉其他人
+            for (var j = 0; j < lis.length; j++) {
+                lis[j].className = '';
+            }
+            this.className = 'current';
+            var index = this.getAttribute('index');
+            for (var k = 0; k < items.length; k++) {
+                items[k].style.display = 'none';
+            }
+            items[index].style.display = 'block';
+        }
+
+
+    }
+    </script>
+</body>
+</html>

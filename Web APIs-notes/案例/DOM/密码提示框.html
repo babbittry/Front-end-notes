@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div {
+        width: 600px;
+        margin: 100px auto;
+    }
+    .message {
+        display: inline-block;
+        font-size: 12px;
+        color: #999;
+        background: url(images/message.png) no-repeat left center;
+        background-size: 16px;
+        padding-left: 20px;
+    }
+    .error {
+        display: inline-block;
+        font-size: 12px;
+        color: red;
+        background: url(images/error.png) no-repeat left center;
+        background-size: 16px;
+        padding-left: 20px;
+    }
+    .right {
+        display: inline-block;
+        font-size: 12px;
+        color: green;
+        background: url(images/right.png) no-repeat left center;
+        background-size: 16px;
+        padding-left: 20px;
+    }
+    </style>
+</head>
+<body>
+    <div class="register">
+        <input type="password" class="pwd">
+        <p class="message">请输入6~16位密码</p>
+    </div>
+    <script>
+    var pwd = document.querySelector('.pwd');
+    var message = document.querySelector('.message');
+    pwd.onblur = function() {
+        if (pwd.value.length > 16 || pwd.value.length < 6) {
+            
+            message.className = 'error';
+            message.innerHTML = '您输入的位数不对，要求6~16位';
+        } else {
+            message.className = 'right';
+            message.innerHTML = '对辽~';
+        }
+    }
+    </script>
+</body>
+</html>

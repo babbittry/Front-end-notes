@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul li{
+            width: 300px;
+            background-color: #ddd;
+            margin-bottom: 30px;
+        }
+    li a {
+        float: right;
+    }
+    </style>
+</head>
+
+<body>
+    <textarea name="" id="" cols="30" rows="10">123</textarea>
+    <button>发布</button>
+    <ul>
+        <li>pink老师讲的真好<a href='javascript:;'>删除</a></li>
+    </ul>
+    <script>
+        //获取元素
+        var btn = document.querySelector('button');
+        var text = document.querySelector('textarea');
+        var ul = document.querySelector('ul');
+        //注册事件
+        btn.onclick = function () {
+            if (text.value == '') {
+                alert('您没有输入任何内容');
+                return false;
+            } else {
+                var li = document.createElement('li');
+                //将文本域的内容赋值给li，同时后面添加一个删除留言的a链接
+                li.innerHTML = text.value + "<a href='javascript:;'>删除</a>";
+                ul.insertBefore(li, ul.children[0]);
+                var as = document.querySelectorAll('a'); 
+                for (var i = 0; i < as.length; i++) {
+                    as[i].onclick = function () {
+                        //删除的是a当前所在的li
+                        ul.removeChild(this.parentNode);
+                    }
+                }               
+            }
+        }
+    </script>
+</body>
+
+</html>

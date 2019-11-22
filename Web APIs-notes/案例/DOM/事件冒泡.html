@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .father {
+            width: 260px;
+            height: 260px;
+            background-color: pink;
+            margin: 0 auto;
+            color: #fff;
+        }
+
+        .son {
+            width: 150px;
+            height: 150px;
+            background-color: skyblue;
+            margin: 40px auto;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        father
+        <div class="son">
+            son
+        </div>
+    </div>
+    <script>
+        var father = document.querySelector('.father');
+        var son = document.querySelector('.son');
+        father.addEventListener('click', alertName, false);
+        son.addEventListener('click', alertName, false);
+        document.addEventListener('click',function () {
+            alert('document');
+        }, false);
+        function alertName (event) {
+            alert(this.getAttribute("class"));
+            event.stopPropagation();    // 停止冒泡
+            event.cancelBubble;         // IE 6 7 8 的停止冒泡
+        }
+    </script>
+</body>
+
+</html>

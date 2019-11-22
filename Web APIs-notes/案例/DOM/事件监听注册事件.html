@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>注册事件</button>
+    <script>
+        var btn = document.querySelector('button');
+        //事件监听注册事件里面的事件类型是字符串，必须加引号，而且不带on
+        btn.addEventListener('click', function () {
+            alert('我点击了按钮');
+        });
+    </script>
+</body>
+
+</html>

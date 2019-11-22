@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: url(images/bg1.jpg) no-repeat center top;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .baidu {
+            overflow: hidden;
+            margin: 100px auto;
+            background-color: #fff;
+            width: 410px;
+            padding-top: 3px;
+        }
+
+        .baidu li {
+            float: left;
+            margin: 0 1px;
+            cursor: pointer;
+        }
+
+        .baidu img {
+            width: 100px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <ul class="baidu">
+        <li><img src="images/bg1.jpg" alt=""></li>
+        <li><img src="images/bg2.jpg" alt=""></li>
+        <li><img src="images/bg3.jpg" alt=""></li>
+        <li><img src="images/bg4.jpg" alt=""></li>
+    </ul>
+    <script>
+        //获取元素
+        var images = document.querySelector('.baidu').querySelectorAll('img');
+        for (var i = 0; i < images.length; i++) {
+            //temp 存储原来的背景
+            var temp;
+            images[i].onclick = function () {
+                document.body.style.backgroundImage = 'url(' + this.src + ')';
+                temp = 'url(' + this.src + ')';
+            }
+            images[i].onmouseover = function () {
+                temp = document.body.style.backgroundImage;
+                document.body.style.backgroundImage = 'url(' + this.src + ')';
+            }
+            images[i].onmouseout = function () {
+                document.body.style.backgroundImage = temp;
+            }
+        }
+    </script>
+</body>
+
+</html>

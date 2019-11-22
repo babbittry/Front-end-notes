@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button>按钮1</button>
+    <button>按钮2</button>
+    <button>按钮3</button>
+    <button>按钮4</button>
+    <button>按钮5</button>
+    <script>
+    var btns = document.querySelectorAll('button');
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].onclick = function () {
+            //  1. 先把所有颜色的背景颜色都清空
+            for (var j = 0; j < btns.length; j++) {
+                btns[j].style.backgroundColor = '';
+            }
+            //  2. 再把想要的背景颜色改成pink
+            this.style.backgroundColor = 'pink';
+        }
+    }
+    </script>
+</body>
+</html>

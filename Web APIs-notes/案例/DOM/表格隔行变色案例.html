@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table {
+            width: 800px;
+            height: 500px;
+            margin: 0 auto;
+            border: 1px solid #999;
+        }
+
+        thead {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>代码</th>
+                <th>名称</th>
+                <th>最新公布净值</th>
+                <th>累计净值</th>
+                <th>前单位净值</th>
+                <th>净增长</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>003526</td>
+                <td>三个月定期</td>
+                <td>1.075</td>
+                <td>1.079</td>
+                <td>1.074</td>
+                <td>+0.047%</td>
+            </tr>
+            <tr>
+                <td>003526</td>
+                <td>三个月定期</td>
+                <td>1.075</td>
+                <td>1.079</td>
+                <td>1.074</td>
+                <td>+0.047%</td>
+            </tr>
+            <tr>
+                <td>003526</td>
+                <td>三个月定期</td>
+                <td>1.075</td>
+                <td>1.079</td>
+                <td>1.074</td>
+                <td>+0.047%</td>
+            </tr>
+            <tr>
+                <td>003526</td>
+                <td>三个月定期</td>
+                <td>1.075</td>
+                <td>1.079</td>
+                <td>1.074</td>
+                <td>+0.047%</td>
+            </tr>
+            <tr>
+                <td>003526</td>
+                <td>三个月定期</td>
+                <td>1.075</td>
+                <td>1.079</td>
+                <td>1.074</td>
+                <td>+0.047%</td>
+            </tr>
+            <tr>
+                <td>003526</td>
+                <td>三个月定期</td>
+                <td>1.075</td>
+                <td>1.079</td>
+                <td>1.074</td>
+                <td>+0.047%</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        var trs = document.querySelector('tbody').querySelectorAll('tr');
+        for (var i = 0; i < trs.length; i++) {
+            trs[i].onmouseover = function () {
+                this.style.backgroundColor = 'pink';
+            }
+            trs[i].onmouseout = function () {
+                this.style.backgroundColor = '';
+            }
+        }
+    </script>
+</body>
+
+</html>

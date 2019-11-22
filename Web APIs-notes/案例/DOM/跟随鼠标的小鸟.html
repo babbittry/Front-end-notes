@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        img {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="images/bird.gif" alt="">
+    <script>
+        var image = document.querySelector('img');
+        document.addEventListener('mousemove', function (e) {
+            // 只要鼠标移动，就会触发这个事件
+            var x = e.pageX;
+            var y = e.pageY;
+            // top 和 left 一定要加 px
+            image.style.left = x - 20 + 'px';
+            image.style.top = y - 20 + 'px';
+        });
+    </script>
+</body>
+
+</html>

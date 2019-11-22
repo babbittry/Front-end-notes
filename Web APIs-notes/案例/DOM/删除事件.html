@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div {
+        width: 50px;
+        height: 50px;
+        background-color: skyblue;
+        margin: 30px auto;
+    }
+    </style>
+</head>
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <script>
+    var divs = document.querySelectorAll('div');
+    divs[0].onclick = function() {
+        alert ('11');
+        divs[0].onclick = null;
+    }
+    divs[1].addEventListener('click', alertWarn);
+    function alertWarn () {
+        alert('warning');
+        divs[1].removeEventListener('click', alertWarn);
+    }
+    divs[2].attachEvent('onclick', alertWarn1);
+    function alertWarn1 () {
+        alert('warning');
+        divs[1].detachEvent('click', alertWarn1);
+    }
+
+    </script>
+</body>
+</html>

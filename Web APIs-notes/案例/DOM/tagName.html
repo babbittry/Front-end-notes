@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>一二三四五</li>
+        <li>上山打老虎</li>
+        <li>老虎有几只</li>
+        <li>快来数一数</li>
+        <li>一二三四五</li>
+    </ul>
+    <ol>
+        <li>123一二三四五</li>
+        <li>123上山打老虎</li>
+        <li>123老虎有几只</li>
+        <li>123快来数一数</li>
+        <li>123一二三四五</li>
+    </ol>
+    <script>
+    var ol = document.getElementsByTagName('ol');
+    //伪数组不能做父元素
+    var list = ol[0].getElementsByTagName('li');
+    console.log(list);
+    console.dir(list);
+    </script>
+</body>
+</html>
