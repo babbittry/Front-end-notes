@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    ul {
+        list-style: none;
+    }
+    body {
+        background: url(images/wx.jpg) repeat-x;
+    }
+    .nav {
+        height: 75px;
+    }
+    .nav li {
+        margin: 0 10px; 
+        padding-top: 21px;
+    }
+    .nav li a {
+        display: inline-block;
+        background: url(images/ao.png) no-repeat;
+        height: 33px;
+        padding-left: 15px;
+    }
+    .nav li a:hover {
+        background-image: url(images/tu.png);
+    }
+    .nav li a span {
+        display: inline-block;
+        background: url(images/ao.png) no-repeat right;
+        color: #fff;
+        text-decoration: none;
+        line-height: 33px;
+        padding-right: 15px;
+    }
+    .nav li a:hover span {
+        background-image: url(images/tu.png);
+    }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <ul>
+            <li>
+                <a href="#">
+                    <span>首页</span>
+                </a>
+                <a href="#">
+                    <span>帮助与反馈</span>
+                </a>
+                <a href="#">
+                    <span>公众平台</span>
+                </a>
+                <a href="#">
+                    <span>微信支付</span>
+                </a>
+                <a href="#">
+                    <span>表情开放平台</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

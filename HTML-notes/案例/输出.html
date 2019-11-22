@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    class Foo {
+        name = 'Foo'
+        a () {console.log(this.name)}
+        b =  function () { console.log(this.name) }
+        c = () =>console.log(this.name)
+    }
+    let f =  new Foo();
+    let b = { name:'bar', a: f.a, b: f.b, c: f.c }
+    console.log(b.a());
+    console.log(b.b());
+    console.log(b.c());
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div {
+        width: 310px;
+        height: 190px;
+        border: 1px solid black;
+        margin: 50px auto;
+        padding: 10px;
+        position: relative;    /*  子绝父相 */
+    }
+    .topIcon {
+        position: absolute;     /* 绝对定位，不占有位置 */
+        top: 0;
+        left: 0;
+    }
+    .bottomIcon {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="images/top_tu.gif" alt="" class="topIcon">
+        <img src="images/adv.jpg" alt="">
+        <img src="images/br.gif" alt="" class="bottomIcon">
+    </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div {
+        width: 200px;
+        height: 200px;
+        border: 1px solid red;
+    }
+    div:first-child {
+        border-radius: 10px;  /* 一个数值表明四个角都是一样的 */
+    }
+    div:nth-child(2) {
+        border-radius: 20%;
+    }
+    div:nth-child(3) {
+        border-radius: 10px 30px;       /* 两个数值表明左上和右下一样、左下和右上一样 */
+    }
+    div:nth-child(4) {
+        border-radius: 10px 50px 100px;       /* 三个数值左上是第一个数值、左下、右上第二个、右下左后一个 */
+    }
+    div:nth-child(5) {
+        border-radius: 10px 50px 100px 70px;       /* 四个数值顺时针 */
+    }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+</html>

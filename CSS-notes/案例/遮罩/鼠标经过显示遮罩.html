@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .img_div {
+    margin: 20px 400px 0 400px;
+    position: relative;
+    width: 531px;
+    height: 354px;
+    }
+    .mask {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 606px;
+        height: 400px;
+        background: rgba(101, 101, 101, 0.6);
+        color: #ffffff;
+        opacity: 0;
+    }
+    .mask h3 {
+        text-align: center;
+    }
+    .img_div a:hover .mask {
+        opacity: 1;           
+    }
+    </style>
+</head>
+<body>
+    <div class="img_div">
+        <img src="2.png">
+    
+            <a href="#">
+                <div class="mask">
+                   <h3>A Picture of food</h3>
+                    </div>
+            </a>
+    </div>
+
+</body>
+</html>

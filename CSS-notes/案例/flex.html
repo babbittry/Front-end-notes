@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    section {
+        width: 80%;
+        height: 200px;
+        border: 1px solid #000;
+        margin: 100px auto;
+        display: flex;
+        min-width: 280px;
+        max-width: 1280px;
+    }
+    section div {
+        height: 100%;
+
+
+    }
+    section div:nth-child(odd) { 
+        background-color: skyblue;
+        flex: 1;
+    }
+    section div:nth-child(2) {
+        background-color: pink; 
+        margin: 0 5px;
+        flex: 2;
+    }
+    </style>
+</head>
+<body>
+    <section>
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
+</body>
+</html>

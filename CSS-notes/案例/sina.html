@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    .top {
+        height: 44px;
+        width: 100%;        /* 固定定位的盒子一定要写宽和高 */
+        background: url(images/top.png) no-repeat top center;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+    .box {
+        width: 1002px;
+        margin: 44px auto;
+    }
+    .ad-l,
+    .ad-r {
+        position: fixed;
+        top: 100px;
+    }
+    .ad-l {
+        left: 0;
+    }
+    .ad-r {
+        right: 0;
+    }
+    </style>
+</head>
+<body>
+    <div class="top">
+    </div>
+    <div class="ad-l"><img src="images/ad-l.png" alt=""></div>
+    <div class="ad-r"><img src="images/ad-r.png" alt=""></div>
+    <div class="box">
+        <img src="images/box.png" alt="">
+    </div>
+</body>
+</html>

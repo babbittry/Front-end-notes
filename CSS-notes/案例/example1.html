@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {    /*  清空浏览器默认样式 */
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;      /*  取消列表自带的小点 */
+        }
+    #big {
+        height: 294px;
+        width: 238px;
+        border: 1px solid #3c3c3c;
+        border-top: 3px solid #ff8400; 
+        margin: 100px;
+    }
+    #big h3{
+        height: 35px;
+        line-height: 35px;     /*让行高等于高，垂直居中 */
+        font-size: 16px;
+        border-bottom: 1px solid #3c3c3c;
+        font-weight: normal;
+        padding-left: 15px;
+    }
+    #big img {
+        width: 220px;
+        margin: 7px 0 0 8px;
+    }
+    #big ul {
+        margin: 8px;
+    }
+    #big ul li {
+        height: 26px;
+        line-height: 26px;
+        padding-left: 10px;
+        background: url(square.jpg) no-repeat left center;
+    }
+    #big ul li a {
+        color: #666;
+        font-size: 12px;
+        text-decoration: none;
+    }
+    #big ul li a:hover {
+        color: #ff8400;
+        text-decoration: underline;
+    }
+    </style>
+</head>
+<body>
+    <div id="big">
+        <h3 id="search">搜索趣图</h3>
+        <img src="2.png"/>
+        <ul>
+            <li><a href="#">量子</a></li>
+            <li><a href="#">太空解密</a></li>
+            <li><a href="#">太阳风暴</a></li>
+        </ul>
+    </div>
+</body>
+</html>

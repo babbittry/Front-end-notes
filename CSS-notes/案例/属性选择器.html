@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    /* 所有具有"data-vegetable"属性的元素将被应用绿色的文本颜色 */
+[data-vegetable] {
+  color: green
+}
+
+/* 所有具有"data-vegetable"属性且属性值刚好为"liquid"的元素将被应用金色的背景颜色 */
+[data-vegetable="liquid"] {
+  background-color: goldenrod;
+}
+
+/* 所有具有"data-vegetable"属性且属性值包含"spicy"的元素，
+即使元素的属性中还包含其他属性值，都会被应用红色的文本颜色 */
+[data-vegetable~="spicy"] {
+  color: red;
+}
+    </style>
+</head>
+<body>
+    我的食谱配料: <i lang="fr-FR">Poulet basquaise</i>
+<ul>
+  <li data-quantity="1kg" data-vegetable>Tomatoes</li>
+  <li data-quantity="3" data-vegetable>Onions</li>
+  <li data-quantity="3" data-vegetable>Garlic</li>
+  <li data-quantity="700g" data-vegetable="not spicy like chili">Red pepper</li>
+  <li data-quantity="2kg" data-meat>Chicken</li>
+  <li data-quantity="optional 150g" data-meat>Bacon bits</li>
+  <li data-quantity="optional 10ml" data-vegetable="liquid">Olive oil</li>
+  <li data-quantity="25cl" data-vegetable="liquid">White wine</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    ul {
+        list-style: none;
+    }
+    .slider {
+        width: 520px;
+        height: 280px;
+        margin: 50px auto;
+        position: relative;
+    }
+    .arrow-left,
+    .arrow-right {
+        position: absolute;
+        width: 24px;
+        height: 36px;
+        display: block;
+        top: 140px;
+        margin-top: -13px;      /* 上外边距是网上走自己的一半 */
+    }
+    .arrow-left {        
+        left: 0;
+    }
+    .arrow-right {
+        right: 0;
+    }
+    .slider .circle {
+        position: absolute;
+        width: 66px;
+        height: 14px;
+        background-color: rgba(255, 255, 255, 0.8);
+        left: 260px;
+        margin-left: -33px;
+        bottom: 15px;
+        border-radius: 7px;
+    }
+    .slider .circle li {
+        width: 9px;
+        height: 9px;
+        background-color: #b7b7b7;
+        float: left;
+        margin: 2px;
+        border-radius: 50%;
+    }
+    .slider .circle .current {
+        background-color: #f40;
+    }
+    </style>
+</head>
+<body>
+    <div class="slider">
+        <img src="images/taobao.jpg" alt="">
+        <a href="#" class="arrow-left"><img src="images/left.png" alt=""></a>
+        <a href="#" class="arrow-right"><img src="images/right.png" alt=""></a>
+        <ul class="circle">        <!-- 小圆点 -->
+            <li></li>
+            <li class="current"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+</html>

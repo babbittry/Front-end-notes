@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    ul {
+       list-style: none;        /* 取消list的默认的小点 */
+    }
+    .top {
+        height: 80px;
+        background-color: #5c5c5c;
+        margin-bottom: 10px;
+    }
+    .banner {
+        width: 1224px;
+        height: 180px;
+        background-color: pink;
+        margin: 0 auto;
+        border-radius: 20px;
+        margin-bottom: 10px;
+    }
+    .main {
+        width: 1224px;
+        height: 400px;
+        background-color: hotpink;
+        margin: 0 auto;
+        margin-bottom: 10px;
+    }
+    .footer {
+        height: 80px;
+        background-color: #5c5c5c;
+    }
+    .main ul li {
+        width: 306px;
+        height: 400px;
+        float: left;
+    }
+    .main ul li:nth-child(even) {       /* even的意思是偶数 */
+        background-color: deeppink;
+    }
+    </style>
+</head>
+<body>
+    <div class="top"></div>
+    <div class="banner"></div>
+    <div class="main">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <div class="footer"></div>
+</body>
+</html>

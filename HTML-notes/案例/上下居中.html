@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,body{
+            height: 100%;
+        }
+        #parent {
+            height: 500px; /*定义高度，让线盒模div#eatra有一个参照物，可以是固定值，也可以是参照物*/
+            border: 1px solid red;
+        }
+        #vertically_center,#extra {
+            display: inline-block; /*把元素转为行内元素显示*/
+            vertical-align: middle; /*垂直居中*/
+        }
+        #extra {
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="parent">
+        <div id="vertically_center">
+            <p>I am vertically centered!</p>
+        </div>
+        <div id="extra"></div>
+    </div>
+</body>
+</html>

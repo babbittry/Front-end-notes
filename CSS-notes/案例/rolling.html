@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    ul {
+        list-style: none;
+    }
+    nav {
+        width: 952px;
+        height: 86px;
+        margin: 100px auto;
+        border: 1px solid #000;
+        overflow: hidden;
+    }
+    nav li {
+        float: left;
+        margin-right: 10px;
+    }
+    nav ul {
+        width: 200%;
+        animation: moving 8s linear infinite;      /* 引用动画 */
+    }
+    @keyframes moving {     /* 定义动画 */
+        from {
+            transform: translateX(0px);
+        }
+        to {
+            transform: translateX(-952px);
+        }
+    }
+    nav:hover ul {
+        animation-play-state: paused;
+    }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><img src="images/rolling/nav1.jpg" alt=""></li>
+            <li><img src="images/rolling/nav2.jpg" alt=""></li>
+            <li><img src="images/rolling/nav3.jpg" alt=""></li>
+            <li><img src="images/rolling/nav4.jpg" alt=""></li>
+            <li><img src="images/rolling/nav5.jpg" alt=""></li>
+            <li><img src="images/rolling/nav6.jpg" alt=""></li>
+            <li><img src="images/rolling/nav7.jpg" alt=""></li>
+            <li><img src="images/rolling/nav1.jpg" alt=""></li>
+            <li><img src="images/rolling/nav2.jpg" alt=""></li>
+            <li><img src="images/rolling/nav3.jpg" alt=""></li>
+            <li><img src="images/rolling/nav4.jpg" alt=""></li>
+            <li><img src="images/rolling/nav5.jpg" alt=""></li>
+            <li><img src="images/rolling/nav6.jpg" alt=""></li>
+            <li><img src="images/rolling/nav7.jpg" alt=""></li>
+        </ul>
+    </nav>
+</body>
+</html>

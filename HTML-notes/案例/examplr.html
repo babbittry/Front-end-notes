@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <fieldset>
+            <legend>学生档案</legend>
+            <label>学生姓名：<input type="text" placeholder="请输入学生名字"/></label><br/><br/>
+            <label>手机号：<input type="tel"/></label><br/><br/>
+            <label>邮箱：<input type="email"/></label><br/><br/>
+            <label>所属学院：<input type="text" list="xueyuan"/></label>
+            <datalist id="xueyuan">
+                <option>电气工程学院</option>
+                <option>机械工程学院</option>
+                <option>环化学院</option>
+            </datalist><br/><br/>
+            <label>出生日期：<input type="date"/></label><br/><br/>
+                <label>成绩：<input type="number"/></label><br/><br/>
+                    <label>毕业时间：<input type="date"/></label><br/><br/>
+            <input type="submit"/>
+            <input type="reset"/>
+        </fieldset>
+    </form>
+</body>
+</html>

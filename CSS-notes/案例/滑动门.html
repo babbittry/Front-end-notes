@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    a {
+        display: inline-block;
+        margin: 100px;
+        height: 33px;       /* 千万不能给宽度，写死宽度是不对的 */
+        background: url(images/ao.png) no-repeat;
+        padding-left: 15px;    /*  利用padding挤开 */
+    }
+    span {
+        display: inline-block;
+        height: 33px;
+        color: #fff;
+        background: url(images/ao.png) no-repeat right;
+        padding-right: 15px;
+        line-height: 33px;
+        text-decoration: none;
+    }
+    </style>
+</head>
+<body>
+    <a href="#">
+        <span>首页</span>
+    </a>
+    <a href="#">
+            <span>二维码</span>
+    </a>
+    <a href="#">
+        <span>公司简介</span>
+    </a>
+</body>
+</html>
