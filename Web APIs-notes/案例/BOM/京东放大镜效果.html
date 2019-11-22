@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .preview_img {
+            position: relative;
+        }
+        .preview_img img {
+            width: 400px;
+            height: 400px;
+        }
+        .mask {
+            display: none;
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            top: 0;
+            left: 0;
+            background-color: #FEDE4F;
+            opacity: .5;
+            cursor: move;
+            border: 1px solid #ccc;
+        }
+        .big {
+            display: none;
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            top: 0;
+            left: 410px;
+            z-index: 999;
+            background-color: pink;
+            border: 1px solid #ccc;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="preview_img">
+        <img src="images/1.jpg" alt="">
+        <div class="mask"></div>
+        <div class="big"></div>
+    </div>
+    <script>
+        var preview_img = document.querySelector('.preview_img');
+        var mask = document.querySelector('.mask');
+        var big = document.querySelector('.big');
+        preview_img.addEventListener('mouseover', function() {
+            mask.style.display = 'block';
+            big.style.display = 'block';
+        });
+        preview_img.addEventListener('mouseout', function() {
+            mask.style.display = 'none';
+            big.style.display = 'none';
+        });
+    </script>
+</body>
+
+</html>
