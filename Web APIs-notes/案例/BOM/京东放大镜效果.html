@@ -25,6 +25,7 @@
             opacity: .5;
             cursor: move;
             border: 1px solid #ccc;
+            overflow: hidden;
         }
         .big {
             display: none;
@@ -58,6 +59,27 @@
         preview_img.addEventListener('mouseout', function() {
             mask.style.display = 'none';
             big.style.display = 'none';
+        });
+        //鼠标移动的时候，让鼠标跟着黄色盒子走
+        preview_img.addEventListener('mousemove', function(e) {
+            var x = e.pageX - this.offsetLeft;
+            var y = e.pageY - this.offsetTop;
+            var maskX = x - mask.offsetWidth / 2;
+            var maskY = y - mask.offsetHeight / 2;
+            if (maskX < 0) {
+                maskX = 0;
+            } else if (maskX >= 100) {
+                maskX = 100;
+            }
+            if (maskY < 0) {
+                maskY = 0;
+            } else if (maskY >= (preview_img.offsetHeight - mask.offsetHeight)) {
+                maskY = (preview_img.offsetHeight - mask.offsetHeight);
+            }
+            console.log(preview_img.offsetWidth - mask.offsetWidth);
+            
+            mask.style.left = maskX + 'px';
+            mask.style.top = maskY + 'px';
         });
     </script>
 </body>
