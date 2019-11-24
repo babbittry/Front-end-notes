@@ -12,10 +12,12 @@
             width: 402px;
             height: 402px;
         }
+
         .preview_img img {
             width: 400px;
             height: 400px;
         }
+
         .mask {
             display: none;
             position: absolute;
@@ -29,11 +31,12 @@
             border: 1px solid #ccc;
             overflow: hidden;
         }
+
         .big {
             display: none;
             position: absolute;
-            width: 500px;
-            height: 500px;
+            width: 800px;
+            height: 800px;
             top: 0;
             left: 410px;
             z-index: 999;
@@ -54,16 +57,16 @@
         var preview_img = document.querySelector('.preview_img');
         var mask = document.querySelector('.mask');
         var big = document.querySelector('.big');
-        preview_img.addEventListener('mouseover', function() {
+        preview_img.addEventListener('mouseover', function () {
             mask.style.display = 'block';
             big.style.display = 'block';
         });
-        preview_img.addEventListener('mouseout', function() {
+        preview_img.addEventListener('mouseout', function () {
             mask.style.display = 'none';
             big.style.display = 'none';
         });
         //鼠标移动的时候，让鼠标跟着黄色盒子走
-        preview_img.addEventListener('mousemove', function(e) {
+        preview_img.addEventListener('mousemove', function (e) {
             var x = e.pageX - this.offsetLeft;
             var y = e.pageY - this.offsetTop;
             var maskX = x - mask.offsetWidth / 2;
