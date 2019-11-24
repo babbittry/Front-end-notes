@@ -9,6 +9,8 @@
     <style>
         .preview_img {
             position: relative;
+            width: 402px;
+            height: 402px;
         }
         .preview_img img {
             width: 400px;
@@ -68,16 +70,14 @@
             var maskY = y - mask.offsetHeight / 2;
             if (maskX < 0) {
                 maskX = 0;
-            } else if (maskX >= 100) {
-                maskX = 100;
+            } else if (maskX >= (preview_img.offsetWidth - mask.offsetWidth)) {
+                maskX = preview_img.offsetWidth - mask.offsetWidth;
             }
             if (maskY < 0) {
                 maskY = 0;
             } else if (maskY >= (preview_img.offsetHeight - mask.offsetHeight)) {
                 maskY = (preview_img.offsetHeight - mask.offsetHeight);
             }
-            console.log(preview_img.offsetWidth - mask.offsetWidth);
-            
             mask.style.left = maskX + 'px';
             mask.style.top = maskY + 'px';
         });
