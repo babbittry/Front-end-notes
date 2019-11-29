@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    function getFib(n) {
+        var n1 = 1;
+        var n2 = 1;
+        var n3;
+        for(var i = 3; i<= n; i++){
+            n3 = n1 + n2;
+            n1 = n2;
+            n2 = n3;
+        }
+        return n3;
+    }
+    var r = getFib(5);
+    console.log(r);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

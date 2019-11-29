@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    var numbers = [65, 12, 15, 0, 48, 0, 48];
+    var selected = [];
+    var j = 0;
+    for(var i = 0; i < numbers.length; i++){
+        if(numbers[i] !== 0){
+            selected[j] = numbers[i];
+            j++;
+        }
+    }
+    console.log(selected);
+    </script>
+</head>
+<body>
+    <p>
+        要求将数组中的0项去掉，将不为0的值存入一个新的数组，生成新的数组
+    </p>
+</body>
+</html>

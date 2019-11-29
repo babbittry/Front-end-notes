@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    var numbers = [65, 15, 48, 34, 11];
+    var max = numbers[0];
+    // 最大值的索引下标
+    var maxIndex;
+    var min = numbers[0];
+    // 最小值的下标
+    var minIndex;
+    for(i = 0; i < numbers.length; i++) {
+        if(max <= numbers[i]){
+            max = numbers[i];
+            maxIndex = i;
+        }
+        if(min > numbers[i]){
+            min = numbers[i];
+            minIndex = i;
+        }
+    }
+    console.log(max, maxIndex);
+    console.log(min, minIndex);
+    </script>
+</head>
+<body>
+    求一组数中的最大值和最小值，以及所在位置
+</body>
+</html>

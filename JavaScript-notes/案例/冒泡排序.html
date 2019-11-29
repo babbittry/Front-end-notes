@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    var numbers = [97, 68, 78, 51, 72];
+    // 外层循环控制比较几趟，每一趟找到一个最大值
+    for(var i = 0; i < numbers.length - 1; i++){
+        // 内层循环控制比较次数，两两比较并判断两个数的大小
+        for(var j = 0; j < numbers.length - 1 - i; j++){
+            // 两两比较，大的往后移
+            if(numbers[j] > numbers[j + 1]) {
+                // 交换位置
+                var tmp = numbers[j];
+                numbers[j] = numbers[j + 1];
+                numbers[j + 1] = tmp;
+            }
+            else {
+                break;
+            }
+        }
+    }
+    console.log(numbers);
+    </script>
+</head>
+<body>
+    冒泡排序
+</body>
+</html>

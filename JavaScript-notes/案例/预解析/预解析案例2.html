@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    f1();
+    console.log(c);
+    console.log(b);
+    console.log(a);
+    function f1() {
+        var a = b = c = 9;
+        console.log(a);
+        console.log(b);
+        console.log(c);
+    }
+    /*
+        预解析之后相当于
+        var a;
+        a = b = c = 9;
+        b和c是全局变量，a是局部变量
+    */
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

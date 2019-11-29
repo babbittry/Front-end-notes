@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        //全部作用域---0级作用域
+    var num = 5;
+    function f1() {
+        //局部作用域---1级作用域链
+        var num = 15;
+        function f2() {
+            //局部作用域---2级作用域
+            console.log(num);
+        }
+        f2();
+    }
+    f1();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    //定义一个函数，将传入的时间进行格式化，并且如果时间是一位的时候。将它变成两位
+    function formatDate(date) {
+        //instance  实例（对象）  of  的
+        if(!(date instanceof Date)) {
+            //console.error输出一个错误
+            console.error('date不是日期对象');
+            return;
+        }
+
+        var year = date.getFullYear(),
+        month = date.getMonth() + 1,
+        day = date.getDate(),
+        hour = date.getHours(),
+        minute = date.getMinutes(),
+        second = date.getSeconds();
+
+
+        //三元运算符
+        month = month < 10 ? '0' + month : month;
+        day = day < 10 ? '0' + day : day;
+        hour = hour < 10 ? '0' + hour : hour;
+        minute = minute < 10 ? '0' + minute : minute;
+        second = second < 10 ? '0' + second : second;
+
+        return year + '-' + month + '-' + day + '   ' + hour + '时' + minute + '分' + second + '秒';
+        
+
+    }
+    var d = new Date();
+    var dateStr = formatDate(d);
+    console.log(dateStr);
+
+    d = new Date(2017, 8, 9);
+    var dateStr = formatDate(d);
+    console.log(dateStr);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

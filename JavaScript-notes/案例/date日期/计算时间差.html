@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function getInterval(start, end) {
+            var interval = end - start;     //两个日期相差的毫秒数
+            var day, hour, minute, second;
+            day =interval / 1000 / 60 / 60 / 24;
+            hour =  Math.floor(interval / 1000 / 60 / 60 % 24);
+            minute =  Math.floor(interval / 1000 / 60 % 60);
+            second =  Math.floor(interval / 1000 % 60);
+
+            return {
+                day: day,
+                hour: hour,
+                minute: minute,
+                second: second
+            }
+        }
+
+        //d1是当前时间
+        var d1 = new Date();
+        //d2是2019年10月1日，判断距离国庆节放假还有多久
+        var d2 = new Date(2017, 5, 21);
+
+        var o =getInterval(d2, d1);
+
+
+        console.log(o);  
+    </script>
+</head>
+<body>
+    计算时间差，返回相差的天、时、分、秒<br>
+    需要解决的问题：<br>
+    1. 两个时间如何相减<br>
+
+
+    //d1是当前时间<br>
+    var d1 = new Date();<br>
+    //d2是2019年10月1日，判断距离国庆节放假还有多久<br>
+    var d2 = new Date(2019, 9, 1);<br>
+    //在内部调用了d2.valueOf() - d1.valueOf()<br>
+    console.log(d2 - d1);  //返回相差的秒数<br><br>
+
+
+    2. 函数如何返回多个值<br>
+
+    //返回一个对象，让对象的属性返回多个值<br>
+    function fn() {<br>
+        return {<br>            
+            year: 1,<br>
+            month: 2,<br>
+            day: 3,<br>
+            hours: 4,<br>
+            minute: 5,<br>
+            second: 6<br>
+        };<br>
+    }<br>
+
+
+    3. 何如计算相差的天、时、分、秒<br>
+    8844409202毫秒数<br>
+    相差的秒数：8844409202 / 1000 % 60<br><br>
+    相差的分钟数：8844409202 / 1000 / 60 % 60<br>
+    相差的小时数：8844409202 / 1000 / 60 / 60 % 24<br>
+    相差的天数：8844409202 / 1000 / 60 / 60 / 24<br>
+
+
+
+
+
+
+</body>
+</html>

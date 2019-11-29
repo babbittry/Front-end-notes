@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function getRandomInt(min, max) {
+        var randomInt = Math.floor(Math.random() * (max - min + 1) + min);
+        return randomInt;
+        }
+        function getRandomRGB(min, max) {
+            var color1 = getRandomInt(min, max);
+            var color2 = getRandomInt(min, max);
+            var color3 = getRandomInt(min, max);
+            console.log('RGB(' + color1 + ', ' + color2 + ', ' + color3 + ')');
+        }
+        getRandomRGB(0, 255)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

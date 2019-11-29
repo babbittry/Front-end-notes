@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    var names = ['郭德纲', '于谦', '郭麒麟', '岳云鹏'];
+    var str = names[0];
+    // 定义分隔符
+    var seperator = '|';
+    for(var i = 0; i < names.length; i++){
+        str = str + seperator + names[i];
+    }
+    console.log(str);
+    </script>
+</head>
+<body>
+    <p>
+        将字符串数组用|或其他符号分割
+    </p>
+</body>
+</html>

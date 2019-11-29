@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    //sort是将数字转化成字符串，然后比较ASCII码，比如下面输出的结果就是[1, 15, 18, 2]
+    var arr = [1, 2, 15, 18];
+    var newArray = arr.sort();
+    console.log(newArray);
+
+    //解决办法：
+    function compare(a, b) {
+        return a - b;
+    }
+    arr.sort(compare);
+    console.log(newArray);
+
+    // 简写方法：
+    arr.sort(function (a, b) {
+        return a- b;
+    })
+    console.log(arr);
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

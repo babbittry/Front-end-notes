@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    var arr = [5, 17, 15, 458, 49, 48];
+    //外层控制循环的次数
+    for (var i = 0; i < arr.length - 1; i++) {
+        //内层控制比较大小
+        for (var j = 0; j < arr.length - 1 - i; j++) {
+            if (arr[i] > arr[i + 1]) {
+                var tmp = arr[i + 1];
+                arr[i + 1] = arr[i];
+                arr[i] = tmp;
+            }
+
+        }
+    }
+    console.log(arr);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
