@@ -7,6 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
         .preview_img {
             position: relative;
             width: 402px;
@@ -35,8 +39,8 @@
         .big {
             display: none;
             position: absolute;
-            width: 800px;
-            height: 800px;
+            width: 600px;
+            height: 600px;
             top: 0;
             left: 410px;
             z-index: 999;
@@ -44,14 +48,23 @@
             border: 1px solid #ccc;
             overflow: hidden;
         }
+        .big img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 800px;
+            height: 800px;
+        }
     </style>
 </head>
 
 <body>
     <div class="preview_img">
-        <img src="images/1.jpg" alt="">
+        <img src="images/small.png" alt="">
         <div class="mask"></div>
-        <div class="big"></div>
+        <div class="big">
+            <img src="images/big.jpg" alt="" class="bigImg">
+        </div>
     </div>
     <script>
         var preview_img = document.querySelector('.preview_img');
@@ -71,18 +84,25 @@
             var y = e.pageY - this.offsetTop;
             var maskX = x - mask.offsetWidth / 2;
             var maskY = y - mask.offsetHeight / 2;
+            var maskMax = preview_img.offsetWidth - mask.offsetWidth;
             if (maskX < 0) {
                 maskX = 0;
-            } else if (maskX >= (preview_img.offsetWidth - mask.offsetWidth)) {
-                maskX = preview_img.offsetWidth - mask.offsetWidth;
+            } else if (maskX >= maskMax) {
+                maskX = maskMax;
             }
             if (maskY < 0) {
                 maskY = 0;
-            } else if (maskY >= (preview_img.offsetHeight - mask.offsetHeight)) {
-                maskY = (preview_img.offsetHeight - mask.offsetHeight);
+            } else if (maskY >= maskMax) {
+                maskY = maskMax;
             }
             mask.style.left = maskX + 'px';
             mask.style.top = maskY + 'px';
+            var bigImg = document.querySelector('.bigImg');
+            var bigMax = bigImg.offsetWidth - big.offsetWidth;
+            var bigX = maskX * bigMax / maskMax;
+            var bigY = maskY * bigMax / maskMax;
+            bigImg.style.left = -bigX + 'px';
+            bigImg.style.top = -bigY + 'px';
         });
     </script>
 </body>
