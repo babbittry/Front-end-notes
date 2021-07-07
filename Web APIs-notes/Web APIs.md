@@ -11,11 +11,17 @@ A -->|浏览器对象模型| F[BOM]
 
 # API
 
-应用程序编程接口，就是一个工具，以便于能轻松实现想要完成的功能
+API（Application Programming Interface,应用程序编程接口）是一些预先定义的函数，目的是提供应用程序与开发人员基于某软件或硬件得以访问一组例程的能力，而又无需访问源码，或理解内部工作机制的细节。简单来说就是一个工具，以便于能轻松实现想要完成的功能。
+
+- 任何开发语言都有自己的 API
+- API 的特征输入和输出(I/O)
+- API 的使用方法(`console.log()`)
 
 # Web API
 
 Web API是浏览器提供的一套操作浏览器功能和页面元素的API（DOM和BOM）
+
+此处的Web API特指浏览器提供的API(一组方法)，Web API在后面的课程中有其它含义
 
 # DOM
 
@@ -35,16 +41,16 @@ Web API是浏览器提供的一套操作浏览器功能和页面元素的API（D
 
 ## 获取元素
 
-### getElementById()
+### `getElementById()`
 
 注意：
-- 因为文档页面从上往下加载，所以先有标签，然后才能getElementById
+- 因为文档页面从上往下加载，所以先有标签，然后才能 `getElementById`
 - 参数是字符串，所以需要加引号
 - 返回的是一个 element 对象
 
-console.dir 可以打印返回的元素对象，更好的查看里面的属性和方法
+`console.dir` 可以打印返回的元素对象，更好的查看里面的属性和方法
 
-### getElementsByTagName()
+### `getElementsByTagName()`
 
 - 参数是字符串，所以需要加引号d
 - 得到的是对象的集合，可以用遍历来获取所有对象
