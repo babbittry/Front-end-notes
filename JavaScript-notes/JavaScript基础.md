@@ -222,7 +222,7 @@ var age = 18;
 
 ### 简单数据类型
 
-Number、String、Boolean、Undefined、Null
+`Number`、`String`、`Boolean`、`Undefined`、`Null`
 
 #### Number类型
 
@@ -319,7 +319,7 @@ Number、String、Boolean、Undefined、Null
 
 #### Boolean类型
 
-- Boolean字面量：  true和false，区分大小写
+- `Boolean`字面量： ` true`和`false`，区分大小写
 - 计算机内部存储：true为1，false为0
 
 #### Undefined和Null
